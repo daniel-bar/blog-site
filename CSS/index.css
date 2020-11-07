@@ -1,0 +1,34 @@
+.topNav {
+  background-color: #710017;
+  overflow: hidden; }
+
+.topNav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px; }
+
+.topNav a:hover {
+  background-color: #d9ac2a;
+  color: black; }
+
+.topNav a.active {
+  background-color: #050504;
+  color: white; }
+
+.loginNav {
+  float: right; }
+
+.iconBlock {
+  background: #d9ac2a;
+  height: 240px;
+  top: 10px;
+  left: 10px; }
+
+.icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 240px; }
