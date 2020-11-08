@@ -1,47 +1,58 @@
-    /* All the top nav*/
-    /* Add a black background color to the top navigation */
-    
+    $backgroundColor: #710017;
+$font: Impact,
+Charcoal,
+sans-serif;
+.body {
+    font-family: $font;
     .topNav {
-        background-color: #710017;
-        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: $backgroundColor;
+        a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 25px;
+        }
+        a:hover {
+            background-color: #d9ac2a;
+            color: black;
+        }
+        a.active {
+            background-color: #050504;
+            color: white;
+        }
+        .loginNav {
+            float: right;
+        }
     }
-    /* Style the links inside the navigation bar */
-    
-    .topNav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 25px;
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        grid-gap: 10px;
+        max-width: 90%;
+        margin: 0 auto;
+        background-color: lightcoral;
+        div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 130px 0;
+            font-size: 30px;
+        }
     }
-    /* Change the color of links on hover */
-    
-    .topNav a:hover {
-        background-color: #d9ac2a;
-        color: black;
-    }
-    /* Add a color to the active/current link */
-    
-    .topNav a.active {
-        background-color: #050504;
-        color: white;
-    }
-    
-    .loginNav {
-        float: right;
-    }
-    
     .iconBlock {
         background: #d9ac2a;
         height: 240px;
-        top: 10px;
-        left: 10px;
+        position: static;
+        .icon {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 240px;
+        }
     }
-    
-    .icon {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 240px;
-    }
+}
