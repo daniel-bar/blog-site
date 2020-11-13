@@ -1,25 +1,23 @@
-.topNav {
-  background-color: #710017;
-  overflow: hidden; }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #242424; }
 
-.topNav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 25px; }
+.navButton {
+  color: #FFF;
+  font-size: 1.6rem;
+  text-decoration: none; }
+  .navButton:not(:last-child) {
+    margin-right: 10px; }
 
-.topNav a:hover {
-  background-color: #d9ac2a;
-  color: black; }
-
-.topNav a.active {
-  background-color: #050504;
-  color: white; }
-
-.loginNav {
-  float: right; }
+.authButton {
+  color: #FFF;
+  margin-right: 10px;
+  font-size: 1.6rem;
+  text-decoration: none; }
+  .authButton:not(:last-child) {
+    margin-right: 10px; }
 
 .iconBlock {
   background: #d9ac2a;
