@@ -1,41 +1,38 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0 10px;
     background-color: #242424;
 }
 
+.buttonsContainer {
+    display: flex;
+}
+
 .navButton {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
     color: #FFF;
     font-size: 1.6rem;
     text-decoration: none;
-
-    &:not(:last-child) {
-        margin-right: 10px;
+    padding: 0 10px;
+    
+    &:hover {
+        background-color: #1f52a3;
     }
 }
 
 .authButton {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
     color: #FFF;
-    margin-right: 10px;
     font-size: 1.6rem;
     text-decoration: none;
+    padding: 10px;
 
-    &:not(:last-child) {
-        margin-right: 10px;
+    &:hover {
+        background-color: #1f52a3;
     }
-}
-
-.iconBlock {
-    background: #d9ac2a;
-    height: 240px;
-    top: 10px;
-    left: 10px;
-}
-
-.icon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 240px;
 }
