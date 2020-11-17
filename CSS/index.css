@@ -28,3 +28,30 @@
   padding: 10px; }
   .authButton:hover {
     background-color: #1f52a3; }
+
+.topContainer {
+  color: #313030;
+  min-width: 692px;
+  max-width: 82%;
+  position: relative;
+  margin-left: 130px; }
+  .topContainer .title {
+    font-size: 2.75rem;
+    padding-top: 5px;
+    font-weight: 500;
+    line-height: 1.3; }
+  .topContainer .splitter {
+    margin: -2px 680px 6px 7px;
+    border-bottom: 1px #e5e5e5 solid; }
+  .topContainer .lead {
+    color: #33758a;
+    font-size: 2.2rem;
+    line-height: 2.3rem;
+    padding-left: 11px; }
+    .topContainer .lead .link {
+      color: #33758a; }
+  .topContainer .top-right {
+    text-align: right; }
+    .topContainer .top-right .item {
+      width: 288px;
+      font-size: 1.6rem; }
