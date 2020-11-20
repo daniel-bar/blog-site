@@ -55,3 +55,18 @@
     .topContainer .top-right .item {
       width: 288px;
       font-size: 1.6rem; }
+
+.main-container-outer {
+  display: grid;
+  background: #355087;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-areas: "box1 box2 box3 box3" "box4 box5 box5 box6" "box7 box5 box5 box8" "box9 box9 box10 box8"; }
+
+.box1 {
+  grid-area: box1;
+  background-color: red; }
+
+.box2 {
+  grid-area: box2;
+  background-color: lavender; }
