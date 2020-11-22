@@ -1,0 +1,43 @@
+.container {
+  background-color: #3d79d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 350px;
+  border: 3px solid green;
+  margin: 10.5% auto;
+  flex-direction: column; }
+
+input {
+  width: 30vh;
+  height: 4vh;
+  padding: 30px;
+  border: none;
+  font-size: 17px;
+  transition: all 0.3 ease; }
+  input:focus {
+    outline: none; }
+
+input::-webkit-input-placeholder {
+  color: #AAA; }
+
+input:focus::-webkit-input-placeholder {
+  color: dodgerblue; }
+
+.input:focus + .underline {
+  transform: scale(1); }
+
+.underline {
+  background-color: dodgerblue;
+  display: inline-block;
+  height: 2px;
+  left: 50px;
+  margin-top: -4px;
+  position: absolute;
+  top: 185px;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  width: 202px; }
