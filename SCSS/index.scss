@@ -1,3 +1,8 @@
+body {
+    // background: linear-gradient(#1488CC, #2B32B2);
+    // background-attachment: fixed;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -73,20 +78,64 @@
     }
 }
 
-.main-container-outer {
+.mainContainer {
     display: grid;
     background: #355087;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
-    grid-template-areas: "box1 box2 box3 box3" "box4 box5 box5 box6" "box7 box5 box5 box8" "box9 box9 box10 box8";
+    grid-template-columns: 10% 20% 20% 40% auto 10%;
+    grid-template-rows: 10% 25% 25% auto 10%;
+    grid-gap: 20px;
 }
 
 .box1 {
-    grid-area: box1;
-    background-color: red;
+    border: 2px solid red;
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .box2 {
-    grid-area: box2;
-    background-color: lavender;
+    border: 2px solid red;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.box3 {
+    border: 2px solid red;
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.box4 {
+    border: 2px solid red;
+    grid-column: 5;
+    grid-row: 2 / 4;
+}
+
+.box5 {
+    border: 2px solid red;
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.box6 {
+    border: 2px solid red;
+    grid-column: 3 / 5;
+    grid-row: 3;
+}
+
+.box7 {
+    border: 2px solid red;
+    grid-column: 5 / 6;
+    grid-row: 3;
+}
+
+.box8 {
+    border: 2px solid red;
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.box9 {
+    border: 2px solid red;
+    grid-column: 4;
+    grid-row: 3;
 }
