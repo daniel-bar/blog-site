@@ -5,107 +5,89 @@
   justify-content: space-between;
   padding: 0 10px;
   background-color: #242424; }
+  .nav .buttonsContainer {
+    display: flex; }
+  .nav .navButton {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 0 10px; }
+    .nav .navButton:hover {
+      background-color: #1f52a3; }
+  .nav .authButton {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 10px; }
+    .nav .authButton:hover {
+      background-color: #1f52a3; }
 
-.buttonsContainer {
-  display: flex; }
-
-.navButton {
-  transition: all .3s ease;
+.introContainer {
   display: flex;
-  align-items: center;
-  color: #FFF;
-  font-size: 1.6rem;
-  text-decoration: none;
-  padding: 0 10px; }
-  .navButton:hover {
-    background-color: #1f52a3; }
-
-.authButton {
-  transition: all .3s ease;
-  display: flex;
-  align-items: center;
-  color: #FFF;
-  font-size: 1.6rem;
-  text-decoration: none;
-  padding: 10px; }
-  .authButton:hover {
-    background-color: #1f52a3; }
-
-.topContainer {
-  color: #313030;
-  min-width: 692px;
-  max-width: 82%;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
   position: relative;
-  margin-left: 130px; }
-  .topContainer .title {
-    font-size: 2.75rem;
-    padding-top: 5px;
-    font-weight: 500;
-    line-height: 1.3; }
-  .topContainer .splitter {
-    margin: -2px 680px 6px 7px;
-    border-bottom: 1px #e5e5e5 solid; }
-  .topContainer .lead {
-    color: #33758a;
-    font-size: 2.2rem;
-    line-height: 2.3rem;
-    padding-left: 11px; }
-    .topContainer .lead .link {
-      color: #33758a; }
-  .topContainer .top-right {
-    text-align: right; }
-    .topContainer .top-right .item {
-      width: 288px;
-      font-size: 1.6rem; }
+  padding: 15px 0; }
+  .introContainer .infoContainer {
+    display: flex;
+    flex-direction: column; }
+    .introContainer .infoContainer__title {
+      font-size: 4rem; }
+    .introContainer .infoContainer__divider {
+      background-color: #a8a8a8;
+      height: 2px;
+      width: 100%; }
+  .introContainer .infoContainerLinks {
+    display: flex;
+    flex-direction: column; }
+    .introContainer .infoContainerLinks__preText {
+      font-size: 1.8rem; }
+  .introContainer .infoContainerLinksContainer {
+    display: flex; }
+    .introContainer .infoContainerLinksContainer__link {
+      color: #000;
+      font-size: 1.8rem; }
+      .introContainer .infoContainerLinksContainer__link:not(:last-child) {
+        margin-right: 2px; }
+  .introContainer .moreLinksContainer {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column; }
+    .introContainer .moreLinksContainer__link {
+      color: #000;
+      font-size: 1.8rem; }
+    .introContainer .moreLinksContainer__divider {
+      background-color: #a8a8a8;
+      height: 1px;
+      width: 90%; }
 
-.mainContainer {
+.shuffleContainer {
   display: grid;
-  background: #355087;
-  grid-template-columns: 10% 20% 20% 40% auto 10%;
-  grid-template-rows: 10% 25% 25% auto 10%;
-  grid-gap: 20px; }
-
-.box1 {
-  border: 2px solid red;
-  grid-column: 2;
-  grid-row: 2; }
-
-.box2 {
-  border: 2px solid red;
-  grid-column: 3;
-  grid-row: 2; }
-
-.box3 {
-  border: 2px solid red;
-  grid-column: 4;
-  grid-row: 2; }
-
-.box4 {
-  border: 2px solid red;
-  grid-column: 5;
-  grid-row: 2 / 4; }
-
-.box5 {
-  border: 2px solid red;
-  grid-column: 2;
-  grid-row: 3; }
-
-.box6 {
-  border: 2px solid red;
-  grid-column: 3 / 5;
-  grid-row: 3; }
-
-.box7 {
-  border: 2px solid red;
-  grid-column: 5 / 6;
-  grid-row: 3; }
-
-.box8 {
-  border: 2px solid red;
-  grid-column: 2;
-  grid-row: 4; }
-
-.box9 {
-  border: 2px solid red;
-  grid-column: 4;
-  grid-row: 3; }
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  background-color: #1f52a3;
+  padding: 20px; }
+  .shuffleContainer .postContainer {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF;
+    padding: 5px; }
+    .shuffleContainer .postContainer__image {
+      width: 100%;
+      height: 100px;
+      object-fit: cover; }
+    .shuffleContainer .postContainer__title {
+      color: #355087;
+      font-weight: 900;
+      font-size: 1.6rem; }
+    .shuffleContainer .postContainer__description {
+      font-size: 1.4rem; }
