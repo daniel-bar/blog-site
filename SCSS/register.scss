@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(#1488CC, #2B32B2);
+    background-attachment: fixed;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color: #242424;
+}
+
+.buttonsContainer {
+    display: flex;
+}
+
+.navButton {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 0 10px;
+    &:hover {
+        background-color: #1f52a3;
+    }
+}
+
+.authButton {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 10px;
+    &:hover {
+        background-color: #1f52a3;
+    }
+}
+
+.container {
+    // איך הופכים את הרקע שיהיה רספונסיבי עם גודל הדף
+    background: white;
+    box-shadow: 2px 2px 8px black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 650px;
+    margin: 10.5% auto;
+    flex-direction: column;
+}
+
+// לא תקין רספונסיבית
+input {
+    background-color: #d3d3d3;
+    border-radius: 20px;
+    width: 90vh;
+    height: 4vh;
+    padding: 30px;
+    border: none;
+    font-size: 17px;
+    margin: 5px;
+    &:hover {
+        background-color: whitesmoke;
+    }
+}
+
+button {
+    border-radius: 8px;
+    font-size: 25px;
+    background: linear-gradient(#1488CC, #2B32B2);
+    position: relative;
+    left: 200px;
+    top: 7px;
+    &:hover {
+        color: white;
+    }
+}
+
+.logInLink {
+    font-size: x-large;
+    &:hover {
+        color: black;
+    }
+}
