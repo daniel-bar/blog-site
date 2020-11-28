@@ -16,7 +16,7 @@
     text-decoration: none;
     padding: 0 10px; }
     .nav .navButton:hover {
-      background-color: #1f52a3; }
+      color: #1f52a3; }
   .nav .authButton {
     transition: all .3s ease;
     display: flex;
@@ -26,7 +26,7 @@
     text-decoration: none;
     padding: 10px; }
     .nav .authButton:hover {
-      background-color: #1f52a3; }
+      color: #1f52a3; }
 
 .introContainer {
   display: flex;
@@ -39,34 +39,56 @@
     display: flex;
     flex-direction: column; }
     .introContainer .infoContainer__title {
-      font-size: 4rem; }
+      font-size: 5rem; }
     .introContainer .infoContainer__divider {
       background-color: #a8a8a8;
-      height: 2px;
-      width: 100%; }
+      height: 1px;
+      width: 95%; }
   .introContainer .infoContainerLinks {
     display: flex;
     flex-direction: column; }
     .introContainer .infoContainerLinks__preText {
-      font-size: 1.8rem; }
+      font-size: 2.5rem; }
   .introContainer .infoContainerLinksContainer {
     display: flex; }
     .introContainer .infoContainerLinksContainer__link {
+      transition: all .3s ease;
       color: #000;
-      font-size: 1.8rem; }
+      font-size: 2.5rem; }
       .introContainer .infoContainerLinksContainer__link:not(:last-child) {
         margin-right: 2px; }
-  .introContainer .moreLinksContainer {
-    align-self: flex-end;
+      .introContainer .infoContainerLinksContainer__link:hover {
+        color: #1f52a3; }
+  .introContainer .moreTextContainer {
+    align-self: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column; }
-    .introContainer .moreLinksContainer__link {
-      color: #000;
-      font-size: 1.8rem; }
-    .introContainer .moreLinksContainer__divider {
+    .introContainer .moreTextContainer__text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      text-decoration: none;
+      color: #666;
+      font-size: 1.7rem; }
+    .introContainer .moreTextContainer__divider {
       background-color: #a8a8a8;
       height: 1px;
       width: 90%; }
+    .introContainer .moreTextContainer .button {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+      background-image: linear-gradient(#f90, #ffc266);
+      border-radius: 30px;
+      padding: 10px 10px; }
+      .introContainer .moreTextContainer .button__text {
+        color: white;
+        text-decoration: none;
+        font-size: 2.3rem;
+        font-weight: 900; }
+      .introContainer .moreTextContainer .button:hover {
+        background-color: #000000;
+        background-image: linear-gradient(#000000 0%, #434343 74%); }
 
 .shuffleContainer {
   display: grid;
