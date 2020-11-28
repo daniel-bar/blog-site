@@ -1,42 +1,43 @@
+@import "./config";
 body {
     background: linear-gradient(#1488CC, #2B32B2);
     background-attachment: fixed;
 }
 
 .nav {
+    // cant width: 80%:
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
     background-color: #242424;
-}
-
-.buttonsContainer {
-    display: flex;
-}
-
-.navButton {
-    transition: all .3s ease;
-    display: flex;
-    align-items: center;
-    color: #FFF;
-    font-size: 1.6rem;
-    text-decoration: none;
-    padding: 0 10px;
-    &:hover {
-        background-color: #1f52a3;
+    .buttonsContainer {
+        display: flex;
     }
-}
-
-.authButton {
-    transition: all .3s ease;
-    display: flex;
-    align-items: center;
-    color: #FFF;
-    font-size: 1.6rem;
-    text-decoration: none;
-    padding: 10px;
-    &:hover {
-        background-color: #1f52a3;
+    .navButton {
+        transition: all .3s ease;
+        display: flex;
+        align-items: center;
+        color: #FFF;
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 0 10px;
+        &:hover {
+            color: map-get($colors, primary);
+        }
+    }
+    .authButton {
+        transition: all .3s ease;
+        display: flex;
+        align-items: center;
+        color: #FFF;
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 10px;
+        &:hover {
+            color: map-get($colors, primary);
+        }
     }
 }
 
