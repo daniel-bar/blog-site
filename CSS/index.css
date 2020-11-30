@@ -113,3 +113,27 @@
       font-size: 1.6rem; }
     .shuffleContainer .postContainer__description {
       font-size: 1.4rem; }
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: start; }
+  .footerContainer__upperText {
+    align-self: center;
+    color: #666;
+    padding: 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.5rem; }
+  .footerContainer__divider {
+    background-color: #a8a8a8;
+    height: 1px;
+    width: 100%; }
+  .footerContainer__lowerText {
+    align-self: center;
+    color: #666;
+    padding: 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.5rem; }
