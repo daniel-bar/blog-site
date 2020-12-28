@@ -22,5 +22,10 @@
     "devDependencies": {
         "http-server": "^0.12.3",
         "node-sass": "^5.0.0"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "hbs": "^4.1.1",
+        "path": "^0.12.7"
     }
 }
