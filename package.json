@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "scss": "node-sass --watch SCSS -o CSS",
-        "server": "http-server"
+        "start": "node server.js",
+        "dev": "env-cmd -f ./env/backend.env nodemon server.js"
     },
     "repository": {
         "type": "git",
@@ -20,12 +21,13 @@
     },
     "homepage": "https://github.com/daniel-bar/blog-site#readme",
     "devDependencies": {
+        "env-cmd": "^10.1.0",
         "http-server": "^0.12.3",
-        "node-sass": "^5.0.0"
+        "node-sass": "^5.0.0",
+        "nodemon": "^2.0.6"
     },
     "dependencies": {
         "express": "^4.17.1",
-        "hbs": "^4.1.1",
         "path": "^0.12.7"
     }
 }

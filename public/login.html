@@ -29,7 +29,7 @@
         </div>
     </nav>
     <section class="login-form">
-        <form>
+        <form action="http://localhost:3000/api/auth/handleLogin" method="POST">
             <div class="login-form__box">
                 <div class="img">
                     <img src="images/man.png" alt="user">
@@ -39,11 +39,11 @@
                 </div>
                 <div class="form-fields">
                     <div class="filed-input">
-                        <input type="text" placeholder="Enter email" class="form-control">
+                        <input type="text" name="email" placeholder="Enter email" class="form-control">
                         <span><img src="images/email.png"></span>
                     </div>
                     <div class="filed-input">
-                        <input type="password" placeholder="password" class="form-control">
+                        <input type="password" name="password" placeholder="password" class="form-control">
                         <span><img src="images/password.png"></span>
                     </div>
                 </div>
