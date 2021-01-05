@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/register.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="navInner">
+            <div class="buttonsContainer">
+                <a class="navButton" href="/">Home</a>
+                <a class="navButton" href="/blogs">Hot blogs</a>
+                <a class="navButton" href="/post-blog">Post blog</a>
+                <a class="navButton" href="/about">About</a>
+                <a class="navButton" href="/contact">Contact</a>
+            </div>
+            <div class="buttonsContainer">
+                <a class="authButton" href="/register">register</a>
+                <a class="authButton" href="/register">Register</a>
+            </div>
+        </div>
+    </nav>
+    <section class="register-form">
+        <form action="http://localhost:3000/api/auth/handleRegister" method="POST">
+            <div class="register-form__box">
+                <div class="img">
+                    <img src="images/man.png" alt="user">
+                </div>
+                <div class="heading">
+                    <h4>Register</h4>
+                </div>
+                <div class="form-fields">
+                    <div class="filed-input">
+                        <input type="text" name="fullName" placeholder="Enter full name" class="form-control">
+                        <span><img src="images/fullName.png"></span>
+                    </div>
+                    <div class="filed-input">
+                        <input type="text" name="email" placeholder="Enter email" class="form-control">
+                        <span><img src="images/email.png"></span>
+                    </div>
+                    <div class="filed-input">
+                        <input type="password" name="password" placeholder="password" class="form-control">
+                        <span><img src="images/password.png"></span>
+                    </div>
+                </div>
+                <div class="register-button">
+                    <button type="submit">resigster</button>
+                    <a href="">Arleady a member?</a>
+                </div>
+                <div class="social-links">
+                    <p class="social-links__register-text">or register with</p>
+                    <div class="social-links__links-box">
+                        <a href="" class="facebook">Facebook</a>
+                        <a href="" class="google">Google</a>
+                        <a href="" class="twitter">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

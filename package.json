@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "scss": "node-sass --watch SCSS -o CSS",
+        "scss": "node-sass --watch public/SCSS -o public/CSS",
         "start": "node server.js",
         "dev": "env-cmd -f ./env/backend.env nodemon server.js"
     },
@@ -23,11 +23,14 @@
     "devDependencies": {
         "env-cmd": "^10.1.0",
         "http-server": "^0.12.3",
-        "node-sass": "^5.0.0",
         "nodemon": "^2.0.6"
     },
     "dependencies": {
         "express": "^4.17.1",
-        "path": "^0.12.7"
+        "mongoose": "^5.11.10",
+        "node-sass": "^5.0.0",
+        "path": "^0.12.7",
+        "scss": "^0.2.4",
+        "validator": "^13.5.2"
     }
 }
