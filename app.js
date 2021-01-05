@@ -4,6 +4,8 @@ const express = require('express');
 
 const authRouter = require('./router/auth');
 
+require('./db/mongoose');
+
 const app = express();
 
 app.use((req, res, next) => {

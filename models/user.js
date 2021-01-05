@@ -4,33 +4,35 @@ const validator = require('validator');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
+        trim: true,
         required: true,
-        trim: true
     },
     email: {
         type: String,
-        required: true,
         trim: true,
         lowercase: true,
         unique: true,
+        maxlength: 320,
+        required: true,
         validate(value) {
             if (!validator.isEmail(value)) {
-                throw new Error('email is invalid!');
+                throw new Error('Email is invalid');
             }
-        }
+        },
     },
     password: {
         type: String,
-        required: true,
-        trim: true,
         minlength: 7,
-        validate(value) {
-            if (validator.contains(value, 'password')) {
-                throw new Error('password cant contain the password chars!');
-            }
-        }
+        maxlength: 24,
+        required: true,
     },
-})
+    tokens: {
+        type: [{
+            token: { type: String },
+        }],
+        default: [],
+    },
+});
 
 const User = mongoose.model('User', userSchema);
 
