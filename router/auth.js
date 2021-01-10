@@ -19,6 +19,14 @@ router.post(
     handleLogin,
 );
 
-router.post('/handleRegister', handleRegister);
+router.post(
+    '/handleRegister',
+    bodyKeys([
+        { key: 'username', type: 'string' },
+        { key: 'email', type: 'string' },
+        { key: 'password', type: 'string' },
+    ]),
+    handleRegister,
+);
 
 module.exports = router;

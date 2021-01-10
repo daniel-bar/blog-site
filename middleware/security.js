@@ -28,4 +28,4 @@ const bodyKeys = (fields) => {
 
 module.exports = {
     bodyKeys,
-};
+}
