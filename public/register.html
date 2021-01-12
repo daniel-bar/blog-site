@@ -23,13 +23,14 @@
                 <a class="navButton" href="/contact">Contact</a>
             </div>
             <div class="buttonsContainer">
-                <a class="authButton" href="/login">Login</a>
-                <a class="authButton" href="/register">Register</a>
+                <a class="authButton" href="/login.html">Login</a>
+                <a class="authButton" href="/register.html">Register</a>
             </div>
         </div>
     </nav>
+
     <section class="register-form">
-        <form action="http://localhost:3000/api/auth/handleRegister" method="POST">
+        <form id="registerForm">
             <div class="register-form__box">
                 <div class="img">
                     <img src="images/man.png" alt="user">
@@ -39,15 +40,18 @@
                 </div>
                 <div class="form-fields">
                     <div class="filed-input">
-                        <input type="text" name="username" placeholder="Enter full name" class="form-control">
-                        <span><img src="images/fullName.png"></span>
+                        <input id="formUsername" type="text" class="form-control" minlength="3" maxlength="30"
+                            placeholder="Enter username">
+                        <span><img src="images/username.png"></span>
                     </div>
                     <div class="filed-input">
-                        <input type="text" name="email" placeholder="Enter email" class="form-control">
+                        <input id="formEmail" type="email" placeholder="Enter email" class="form-control"
+                            maxlength="320">
                         <span><img src="images/email.png"></span>
                     </div>
                     <div class="filed-input">
-                        <input type="password" name="password" placeholder="password" class="form-control">
+                        <input id="formPassword" type="password" placeholder="password" class="form-control"
+                            minlength="7" maxlength="24">
                         <span><img src="images/password.png"></span>
                     </div>
                 </div>
@@ -66,6 +70,11 @@
             </div>
         </form>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
+
+    <script src="./JS/register.js"></script>
 </body>
 
 </html>

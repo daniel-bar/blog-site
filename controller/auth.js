@@ -42,7 +42,7 @@ const handleLogin = async (req, res, next) => {
 
 const handleRegister = async (req, res, next) => {
     // Validate client provided password to be in the valid length
-    if (res.body.password.length < 7 || req.body.password.length > 24) {
+    if (req.body.password.length < 7 || req.body.password.length > 24) {
         return res.status(400).send({
             success: false,
             message: 'Please provide password of at-least 7 and at most 24 characters length',
@@ -93,7 +93,8 @@ const handleRegister = async (req, res, next) => {
             message: 'Successfully created a new user',
             data: { token: newToken },
         });
-    } catch {
+    } catch (E) {
+        console.log(E)
         res.status(500).send({
             success: false,
             message: 'Server error',
