@@ -1,10 +1,3 @@
-/* הרשמהה זה אחרת:
-1. אתה מוודא את הUSERNAME מבחינת אורך
-2. אתה מוודא את הEMAIL מבחינת אורך ומבחינת SYNTAX
-3. אתה מוודא סיסמה על ידי אורך
-
-ואתה לא נותן למשתמש לשלוח את הטופס של ההרשמה כל עוד הכל לא תקין */
-
 $(document).ready(() => {
     const $registerFormOBJ = $('#registerForm');
     // עכשיו אני רוצה את הערכים שהמשתמש הכניס בשדות
@@ -13,7 +6,7 @@ $(document).ready(() => {
     const $formPasswordOBJ = $('#formPassword');
 
     $registerFormOBJ.on('submit', (event) => {
-        event.preventDefault();
+        event.preventDefault(); ``
 
         // VALIDATE FORM
 
@@ -28,7 +21,7 @@ $(document).ready(() => {
             },
             error: (e) => {
                 console.log(e);
-                //alert('Failed to send the request');
+                alert('Failed to send the request');
                 // DESIGN NICE ERROR MESSAGE.. instead of alert..
             },
             success: (response) => {
