@@ -1,3 +1,21 @@
+body {
+  position: relative; }
+
+.error {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #852727;
+  background-color: #c73e3e;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 5px 12px;
+  text-align: center;
+  white-space: nowrap; }
+
 .nav {
   padding: 0 10px;
   background-color: #242424; }

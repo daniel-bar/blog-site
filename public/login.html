@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <span id="error" class="error"></span>
+
     <nav class="nav">
         <div class="navInner">
             <div class="buttonsContainer">
@@ -29,7 +31,7 @@
         </div>
     </nav>
     <section class="login-form">
-        <form id="loginForm">
+        <form id="loginForm" novalidate>
             <div class="login-form__box">
                 <div class="img">
                     <img src="images/man.png" alt="user">
@@ -67,6 +69,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
+
+    <script src="./JS/util/general.js"></script>
 
     <script src="./JS/login.js"></script>
 

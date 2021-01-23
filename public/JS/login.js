@@ -6,44 +6,46 @@
 // const jwt = require('jsonwebtoken');
 
 $(document).ready(() => {
-    const $loginFormOBJ = $('#loginForm');
+    // Form elements
+    const $loginFormELM = $('#loginForm');
+    const $formEmailELM = $('#formEmail');
+    const $formPasswordELM = $('#formPassword');
 
-    const $formEmailOBJ = $('#formEmail');
-    const $formPasswordOBJ = $('#formPassword');
+    // Error element
+    const $errorELM = $('#error');
 
-    $loginFormOBJ.on('submit', (event) => {
+    let onSendRequest = false;
+
+    // Handle login action
+    $loginFormELM.on('submit', (event) => {
         event.preventDefault();
 
-        $.ajax({
-            url: 'http://localhost:3000/api/auth/handleLogin',
-            method: 'POST',
-            data: {
-                email: $formEmailOBJ.val(),
-                password: $formPasswordOBJ.val(),
-            },
-            // headers: {
-            //     Authorization: 'Bearer ' + token
-            // },
-            beforeSend: (xhr) => {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa($formEmailOBJ + ":" + $formPasswordOBJ));
-                // האם - data.email אמור לעבוד? כי לא עבד לי
-            },
-            error: (e) => {
-                console.log(e);
-                // DESIGN NICE ERROR MESSAGE.. instead of alert..
-            },
-            success: (response) => {
-                console.log(response)
-                localStorage.setItem('auth_token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHScEfxjoYZgeFONFh7HgQ');
-            },
-            timeout: 10000,
-        });
+        if (!onSendRequest) {
+            onSendRequest = true;
+
+            $.ajax({
+                url: 'api/auth/handleLogin',
+                method: 'POST',
+                data: {
+                    email: $formEmailELM.val(),
+                    password: $formPasswordELM.val(),
+                },
+                error: async () => {
+                    $errorELM.html('Failed to authenticate');
+
+                    $errorELM.show({ duration: 1000 });
+                    await sleep(2000);
+                    $errorELM.hide({ duration: 1000 });
+
+                    onSendRequest = false;
+                },
+                success: ({ data: { token } }) => {
+                    localStorage.setItem('auth_token', token);
+
+                    window.location.href = '/';
+                },
+                timeout: 10000,
+            });
+        }
     });
 });
-
-
-// const auth = (username, password) => {
-//     const token = email + ':' + password;
-//     const hash = Base64.encode(token);
-//     return "Basic " + hash;
-// }

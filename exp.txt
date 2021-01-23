@@ -1,0 +1,27 @@
+WHO AM I REQUEST:
+
+IF token is valid:
+Response: {
+    success: true,
+    message: "blab bla"
+    data: {
+        username: 'Tal',
+    },
+}
+
+If token is either missing or invalid:
+Response: {
+    success: false,
+    message: 'bablalaal"
+}
+
+מה קורה בצד לקוח?
+אתה בודק אם success= false or true
+
+אם זה true
+אתה לוקח את השם משתמש מ dataו
+ושם אותו במקום REGISTER LOGIN : HELLO Tal
+
+אם false
+אתה פשוט מציג שם כרגיל REGISTER LOGIN
+אוקי?כן

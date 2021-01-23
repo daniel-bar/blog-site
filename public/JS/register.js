@@ -1,31 +1,45 @@
 $(document).ready(() => {
-    const $registerFormOBJ = $('#registerForm');
-    // עכשיו אני רוצה את הערכים שהמשתמש הכניס בשדות
-    const $formUsernameOBJ = $('#formUsername');
-    const $formEmailOBJ = $('#formEmail');
-    const $formPasswordOBJ = $('#formPassword');
+    // Form elements
+    const $registerFormELM = $('#registerForm');
+    const $formUsernameELM = $('#formUsername');
+    const $formEmailELM = $('#formEmail');
+    const $formPasswordELM = $('#formPassword');
 
-    $registerFormOBJ.on('submit', (event) => {
-        event.preventDefault(); ``
+    // Error element
+    const $errorELM = $('#error');
 
-        // VALIDATE FORM
+    let onSendRequest = false;
 
-        // SENDING to server..
+    // Handle registration action
+    $registerFormELM.on('submit', (event) => {
+        event.preventDefault();
+
+        if (!onSendRequest) {
+            onSendRequest = true;
+        }
+
         $.ajax({
-            url: 'http://localhost:3000/api/auth/handleRegister',
+            url: 'api/auth/handleRegister',
             method: 'POST',
             data: {
-                username: $formUsernameOBJ.val(),
-                email: $formEmailOBJ.val(),
-                password: $formPasswordOBJ.val(),
+                username: $formUsernameELM.val(),
+                email: $formEmailELM.val(),
+                password: $formPasswordELM.val(),
             },
-            error: (e) => {
-                console.log(e);
-                alert('Failed to send the request');
-                // DESIGN NICE ERROR MESSAGE.. instead of alert..
+            error: async ({ responseJSON: { message } }) => {
+                $errorELM.html(message || 'Unexpected error');
+
+                $errorELM.show({ duration: 1000 });
+                await sleep(2000);
+                $errorELM.hide({ duration: 1000 });
+
+                onSendRequest = false;
             },
-            success: (response) => {
-                localStorage.setItem('auth_token', response.data.token);
+            success: ({ data: { token } }) => {
+                localStorage.setItem('auth_token', token);
+
+                window.location.href = '/';
+
             },
             timeout: 10000,
         });

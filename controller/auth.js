@@ -8,9 +8,18 @@ const handleLogin = async (req, res, next) => {
         // Find matching user by email address
         const userByEmail = await User.findOne({ email: req.body.email });
 
-        // Authentication failed when either there is no user found with the provided email,
-        // Or the client provided mismatching password
-        if (!userByEmail || !bcrypt.compareSync(userByEmail.password, req.body.password)) {
+        // There is no such user with the provided email
+        if (!userByEmail) {
+            return res.status(400).send({
+                success: false,
+                message: 'Authentication failed',
+            });
+        }
+
+        // Check whether the provided password is as same as the stored hashed one
+        const compareResult = await bcrypt.compare(req.body.password, userByEmail.password);
+
+        if (!compareResult) {
             return res.status(400).send({
                 success: false,
                 message: 'Authentication failed',
@@ -24,15 +33,14 @@ const handleLogin = async (req, res, next) => {
             userByEmail.tokens.pop();
         }
 
-        userByEmail.tokens = [newToken, ...userByEmail.tokens];
+        userByEmail.tokens = [{ token: newToken }, ...userByEmail.tokens];
 
         res.status(200).send({
             success: true,
             message: 'Successfully authenticated',
             data: { token: newToken },
         });
-    } catch (e) {
-        console.log(e)
+    } catch {
         res.status(500).send({
             success: false,
             message: 'Server error',
@@ -51,7 +59,7 @@ const handleRegister = async (req, res, next) => {
 
     try {
         // Find a document with the provided email
-        const userByEmail = await User.findOne({ email: req.body.Email });
+        const userByEmail = await User.findOne({ email: req.body.email });
 
         // Check for existence - If exists, user cannot register with the provided email
         if (userByEmail) {
@@ -74,11 +82,13 @@ const handleRegister = async (req, res, next) => {
 
         // From now on, the client is allowed to register
 
+        const hashedPassword = await bcrypt.hash(req.body.password, 8);
+
         // Creating the user document
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 8),
+            password: hashedPassword,
         });
         const newToken = jwt.sign({ id: newUser.id }, process.env.JWT_PWD, { expiresIn: '7 days' });
 
@@ -93,8 +103,7 @@ const handleRegister = async (req, res, next) => {
             message: 'Successfully created a new user',
             data: { token: newToken },
         });
-    } catch (E) {
-        console.log(E)
+    } catch {
         res.status(500).send({
             success: false,
             message: 'Server error',
