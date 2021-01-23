@@ -81,7 +81,6 @@ const handleRegister = async (req, res, next) => {
         }
 
         // From now on, the client is allowed to register
-
         const hashedPassword = await bcrypt.hash(req.body.password, 8);
 
         // Creating the user document
@@ -111,7 +110,35 @@ const handleRegister = async (req, res, next) => {
     }
 }
 
+const handleUsername = async (req, res, next) => {
+    try {
+        // Find a document with the provided username
+        const userByUsername = await User.findOne({ username: req.body.username });
+
+        // Check for existence - If exists, fetched username
+        if (userByUsername) {
+            res.status(200).send({
+                success: true,
+                message: 'Successfully fetched the user',
+                data: {
+                    username: userByUsername
+                }
+            });
+            return res.status(400).send({
+                success: false,
+                message: 'Provided username is not exist'
+            });
+        }
+    } catch {
+        res.status(500).send({
+            success: false,
+            message: 'Server error',
+        });
+    }
+}
+
 module.exports = {
     handleLogin,
     handleRegister,
+    handleUsername,
 }

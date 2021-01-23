@@ -3,6 +3,7 @@ const express = require('express');
 const {
     handleLogin,
     handleRegister,
+    handleUsername,
 } = require('../controller/auth');
 const {
     bodyKeys,
@@ -27,6 +28,11 @@ router.post(
         { key: 'password', type: 'string' },
     ]),
     handleRegister,
+);
+
+router.get(
+    '/handleUsername',
+    handleUsername,
 );
 
 module.exports = router;

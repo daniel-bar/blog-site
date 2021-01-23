@@ -22,10 +22,13 @@
                 <a class="navButton" href="/about">About</a>
                 <a class="navButton" href="/contact">Contact</a>
             </div>
-            <div class="buttonsContainer">
+            <div id="buttonsContainerID" class="buttonsContainer">
                 <a class="authButton" href="/login.html">Login</a>
                 <a class="authButton" href="/register.html">Register</a>
             </div>
+
+            <span id="usernameContainer" class="usernameContainer"></span>
+
         </div>
     </nav>
 
@@ -105,6 +108,11 @@
             <h1 class="footerInner__bottom">Term of use</h1>
         </div>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
+
+    <script src="/JS/nameFetch.js"></script>
 </body>
 
 </html>

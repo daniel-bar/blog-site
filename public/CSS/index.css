@@ -32,6 +32,16 @@
     padding: 10px; }
     .navInner .authButton:hover {
       color: #1f52a3; }
+  .navInner .usernameContainer {
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 10px; }
+    .navInner .usernameContainer:hover {
+      color: #1f52a3; }
 
 .introContainer {
   padding: 15px 10px; }

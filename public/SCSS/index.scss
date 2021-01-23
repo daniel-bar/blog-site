@@ -45,6 +45,20 @@
             color: map-get($colors, primary);
         }
     }
+
+    .usernameContainer {
+        transition: all .3s ease;
+        display: flex;
+        align-items: center;
+        color: #FFF;
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 10px;
+
+        &:hover {
+            color: map-get($colors, primary);
+        }
+    }
 }
 
 .introContainer {
