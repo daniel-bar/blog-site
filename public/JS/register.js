@@ -11,37 +11,47 @@ $(document).ready(() => {
     let onSendRequest = false;
 
     // Handle registration action
-    $registerFormELM.on('submit', (event) => {
+    $registerFormELM.on('submit', async, (event) => {
         event.preventDefault();
 
         if (!onSendRequest) {
             onSendRequest = true;
         }
 
-        $.ajax({
-            url: 'api/auth/handleRegister',
-            method: 'POST',
-            data: {
-                username: $formUsernameELM.val(),
-                email: $formEmailELM.val(),
-                password: $formPasswordELM.val(),
-            },
-            error: async ({ responseJSON: { message } }) => {
-                $errorELM.html(message || 'Unexpected error');
+        const data = {
+            username: $formUsernameELM.val(),
+            email: $formEmailELM.val(),
+            password: $formPasswordELM.val(),
+        }
+
+        try {
+            const serverResponse = await fetch('api/auth/handleRegister', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            const serverResponseData = await serverResponse.json();
+
+            if (serverResponseData.success) {
+                localStorage.setItem('auth_token', serverResponseData.token);
+                window.location.href = '/';
+            } else {
+                $errorELM.html(serverResponseData.message);
 
                 $errorELM.show({ duration: 1000 });
                 await sleep(2000);
                 $errorELM.hide({ duration: 1000 });
 
                 onSendRequest = false;
-            },
-            success: ({ data: { token } }) => {
-                localStorage.setItem('auth_token', token);
+            }
+        } catch {
+            $errorELM.html('Unexpected error');
 
-                window.location.href = '/';
+            $errorELM.show({ duration: 1000 });
+            await sleep(2000);
+            $errorELM.hide({ duration: 1000 });
 
-            },
-            timeout: 10000,
-        });
+            onSendRequest = false;
+        }
     });
 });

@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
+
+    <script src="./JS/index.js"></script>
+
     <nav class="nav">
         <div class="navInner">
             <div class="buttonsContainer">
@@ -22,13 +27,14 @@
                 <a class="navButton" href="/about">About</a>
                 <a class="navButton" href="/contact">Contact</a>
             </div>
-            <div id="buttonsContainerID" class="buttonsContainer">
-                <a class="authButton" href="/login.html">Login</a>
-                <a class="authButton" href="/register.html">Register</a>
+
+            <div id="authButtonsContainer" class="authButtonsContainer">
+                <a class="authButtonsContainer__button" href="/login.html">Login</a>
+                <a class="authButtonsContainer__button" href="/register.html">Register</a>
             </div>
+            <a id="logoutButton" class="logoutButton" href="/login.html">Logout</a>
 
-            <span id="usernameContainer" class="usernameContainer"></span>
-
+            <span id="usernameText" class="usernameText"></span>
         </div>
     </nav>
 
@@ -61,41 +67,34 @@
         </div>
     </div>
 
-    <div class="shuffleContainer">
-        <div class="postContainer postContainer--1">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+    <div class="postsContainer">
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
-        <div class="postContainer postContainer--2">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
-        <div class="postContainer postContainer--3">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
-        <div class="postContainer postContainer--4">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
-        <div class="postContainer postContainer--5">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
-        <div class="postContainer postContainer--6">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
-        <div class="postContainer postContainer--7">
-            <img class="postContainer__image" src="./images/post1.jpg" alt="post">
-            <span class="postContainer__title">Bla bla bla nice post</span>
-            <span class="postContainer__description">Description post</span>
+        <div class="postContainer">
+            <span class="postContainer__title">Post title</span>
+            <span class="postContainer__description">Post description</span>
         </div>
     </div>
 
@@ -104,15 +103,9 @@
             <h1 class="footerInner__header">
                 Daniel's blog is the reliable, flexible blogging platform that puts the publisher in control.
             </h1>
-            <hr class="footerInner__divider">
-            <h1 class="footerInner__bottom">Term of use</h1>
+            <h1 class="footerInner__bottom">© 2021 Copyright Daniel Inc.</h1>
         </div>
     </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
-
-    <script src="/JS/nameFetch.js"></script>
 </body>
 
 </html>

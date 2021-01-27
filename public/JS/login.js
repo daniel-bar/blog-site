@@ -10,35 +10,46 @@ $(document).ready(() => {
     let onSendRequest = false;
 
     // Handle login action
-    $loginFormELM.on('submit', (event) => {
+    $loginFormELM.on('submit', async, (event) => {
         event.preventDefault();
 
         if (!onSendRequest) {
             onSendRequest = true;
+        }
 
-            $.ajax({
-                url: 'api/auth/handleLogin',
+        const data = {
+            email: $formEmailELM.val(),
+            password: $formPasswordELM.val(),
+        }
+
+        try {
+            const serverResponse = await fetch('api/auth/handleLogin', {
                 method: 'POST',
-                data: {
-                    email: $formEmailELM.val(),
-                    password: $formPasswordELM.val(),
-                },
-                error: async () => {
-                    $errorELM.html('Failed to authenticate');
-
-                    $errorELM.show({ duration: 1000 });
-                    await sleep(2000);
-                    $errorELM.hide({ duration: 1000 });
-
-                    onSendRequest = false;
-                },
-                success: ({ data: { token } }) => {
-                    localStorage.setItem('auth_token', token);
-
-                    window.location.href = '/';
-                },
-                timeout: 10000,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
             });
+            const serverResponseData = await serverResponse.json();
+
+            if (serverResponseData.success) {
+                localStorage.setItem('auth_token', serverResponseData.token);
+                window.location.href = '/';
+            } else {
+                $errorELM.html(serverResponseData.message);
+
+                $errorELM.show({ duration: 1000 });
+                await sleep(2000);
+                $errorELM.hide({ duration: 1000 });
+
+                onSendRequest = false;
+            }
+        } catch {
+            $errorELM.html('Unexpected error');
+
+            $errorELM.show({ duration: 1000 });
+            await sleep(2000);
+            $errorELM.hide({ duration: 1000 });
+
+            onSendRequest = false;
         }
     });
 });

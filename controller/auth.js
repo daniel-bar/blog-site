@@ -110,25 +110,25 @@ const handleRegister = async (req, res, next) => {
     }
 }
 
-const handleUsername = async (req, res, next) => {
+const getUsername = async (req, res, next) => {
     try {
-        // Find a document with the provided username
-        const userByUsername = await User.findOne({ username: req.body.username });
+        const userByID = await User.findById(req.userID, { username: 1 });
 
-        // Check for existence - If exists, fetched username
-        if (userByUsername) {
-            res.status(200).send({
+        // Check for existence - If exists, fetch username
+        if (userByID) {
+            return res.status(200).send({
                 success: true,
-                message: 'Successfully fetched the user',
+                message: 'Successfully fetched username',
                 data: {
-                    username: userByUsername
+                    username: userByID.username
                 }
             });
-            return res.status(400).send({
-                success: false,
-                message: 'Provided username is not exist'
-            });
         }
+
+        res.status(401).send({
+            success: false,
+            message: 'Unable to authenticate',
+        });
     } catch {
         res.status(500).send({
             success: false,
@@ -140,5 +140,5 @@ const handleUsername = async (req, res, next) => {
 module.exports = {
     handleLogin,
     handleRegister,
-    handleUsername,
+    getUsername,
 }

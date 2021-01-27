@@ -3,11 +3,13 @@ const express = require('express');
 const {
     handleLogin,
     handleRegister,
-    handleUsername,
+    getUsername,
 } = require('../controller/auth');
+
 const {
     bodyKeys,
 } = require('../middleware/security');
+const auth = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -31,8 +33,9 @@ router.post(
 );
 
 router.get(
-    '/handleUsername',
-    handleUsername,
+    '/getUsername',
+    auth,
+    getUsername,
 );
 
 module.exports = router;
