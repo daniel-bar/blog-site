@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
 
-    <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/login.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/nav.css">
+    <link rel="stylesheet" href="./CSS/login.css">
 </head>
 
 <body>
+    <script src="./JS/http/authentication.js"></script>
+
     <span id="error" class="error"></span>
 
     <nav class="nav">
@@ -20,16 +24,24 @@
             <div class="buttonsContainer">
                 <a class="navButton" href="/">Home</a>
                 <a class="navButton" href="/blogs">Hot blogs</a>
-                <a class="navButton" href="/post-blog">Post blog</a>
+                <a class="navButton" href="/post-blog.html">Post blog</a>
                 <a class="navButton" href="/about">About</a>
                 <a class="navButton" href="/contact">Contact</a>
             </div>
-            <div class="buttonsContainer">
-                <a class="authButton" href="/login.html">Login</a>
-                <a class="authButton" href="/register.html">Register</a>
+
+            <div id="authButtonsContainer" class="authButtonsContainer">
+                <a class="authButtonsContainer__button" href="/login.html">Login</a>
+                <a class="authButtonsContainer__button" href="/register.html">Register</a>
+            </div>
+
+            <div id="navUserContainer" class="navUserContainer">
+                <a id="logoutButton" class="navUserContainer__button" href="/">Logout</a>
+                <div class="navUserContainer__divider"></div>
+                <span id="usernameText" class="navUserContainer__username"></span>
             </div>
         </div>
     </nav>
+
     <section class="login-form">
         <form id="loginForm" novalidate>
             <div class="login-form__box">

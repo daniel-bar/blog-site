@@ -1,7 +1,15 @@
+let isAuthenticated = false;
+let username;
+
 (async () => {
     const authenticationResponse = await authenticate();
 
     if (authenticationResponse.success) {
+        isAuthenticated = true;
+        username = authenticationResponse.data.username;
+    } else if (authenticationResponse.data.not_auth) {
+        return window.location.href = '/login.html';
+    } else {
         return window.location.href = '/';
     }
 
@@ -9,22 +17,35 @@
         // Username and auth buttons elements
         const $authButtonsContainerELM = $('#authButtonsContainer');
         const $navUserContainerELM = $('#navUserContainer');
+        const $usernameTextELM = $('#usernameText');
+        const $logoutButtonELM = $('#logoutButton');
 
-        $authButtonsContainerELM.css('display', 'flex');
-        $navUserContainerELM.css('display', 'none');
+        if (isAuthenticated) {
+            $authButtonsContainerELM.css('display', 'none');
+            $navUserContainerELM.css('display', 'flex');
+            $usernameTextELM.html(username);
+        } else {
+            $authButtonsContainerELM.css('display', 'flex');
+            $navUserContainerELM.css('display', 'none');
+        }
+
+        $logoutButtonELM.on('click', () => {
+            localStorage.removeItem('auth_token');
+            return window.location.href = '/';
+        });
 
         // Form elements
-        const $loginFormELM = $('#loginForm');
-        const $formEmailELM = $('#formEmail');
-        const $formPasswordELM = $('#formPassword');
+        const $postBlogFormELM = $('#postBlogForm')
+        const $postBlogFormTitleInputELM = $('#postBlogFormTitleInput');
+        const $postBlogFormContentInputELM = $('#postBlogFormContentInput');
 
         // Error element
         const $errorELM = $('#error');
 
         let onSendRequest = false;
 
-        // Handle login action
-        $loginFormELM.on('submit', async (event) => {
+        // Handle posting action
+        $postBlogFormELM.on('submit', async (event) => {
             event.preventDefault();
 
             if (!onSendRequest) {
@@ -32,15 +53,14 @@
             }
 
             const data = {
-                email: $formEmailELM.val(),
-                password: $formPasswordELM.val(),
+                description: $descriptionELM.val(),
+                text: $textELM.val(),
             }
 
             try {
-                const serverResponseData = await handleLogin(data);
+                const serverResponseData = await postBlog(data);
 
                 if (serverResponseData.success) {
-                    localStorage.setItem('auth_token', serverResponseData.data.token);
                     return window.location.href = '/';
                 } else {
                     $errorELM.html(serverResponseData.message);

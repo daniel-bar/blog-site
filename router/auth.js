@@ -4,6 +4,7 @@ const {
     handleLogin,
     handleRegister,
     getUsername,
+    postBlog,
 } = require('../controller/auth');
 
 const {
@@ -36,6 +37,15 @@ router.get(
     '/getUsername',
     auth,
     getUsername,
+);
+
+router.post(
+    '/postBlog',
+    bodyKeys([
+        { key: 'description', type: 'string' },
+        { key: 'text', type: 'string' },
+    ]),
+    postBlog,
 );
 
 module.exports = router;

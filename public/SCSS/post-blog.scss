@@ -1,18 +1,51 @@
+@import "./config";
+
 body {
-    background: linear-gradient(#1488CC, #2B32B2);
-    background-attachment: fixed;
+    background-color: map-get($colors, postBlogPage-background);
 }
 
-.container {
-    // איך הופכים את הרקע שיהיה רספונסיבי עם גודל הדף את זה לא הצלחתי לעשות 
-    background: white;
-    box-shadow: 2px 2px 8px black;
-    border-radius: 20px;
+.postBlogForm {
+    padding: 0 map-get($sizes, minimal-padding);
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-    height: 650px;
-    margin: 10.5% auto;
     flex-direction: column;
+
+    &__header {
+        font-size: 5.5rem;
+        font-weight: 900;
+        align-self: center;
+        margin-bottom: 30px;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid map-get($colors, postBlogPage-border);
+        margin-bottom: 30px;
+    }
+
+    &__textarea {
+        padding: 10px;
+        border: 2px solid map-get($colors, postBlogPage-border);
+        resize: none;
+    }
+
+    &__submit {
+        transition: all .3s ease;
+        max-width: 100%;
+        align-self: center;
+        margin-top: 40px;
+        color: white;
+        background-color: black;
+        border-radius: 30px;
+        padding: 10px 30px;
+        font-size: 2.5rem;
+
+        &:hover {
+            color: black;
+            background-color: white;
+        }
+    }
 }

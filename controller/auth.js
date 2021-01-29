@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
+const Post = require('../models/post');
 
 const handleLogin = async (req, res, next) => {
     try {
@@ -137,8 +138,58 @@ const getUsername = async (req, res, next) => {
     }
 }
 
+const postBlog = async (req, res, next) => {
+    // Validate client provided description and text to be in the valid length
+    if (req.body.description.length < 3 || req.body.description.length > 50) {
+        return res.status(400).send({
+            success: false,
+            message: 'Please provide description of at-least 3 and at most 50 characters length',
+        });
+    } else if (req.body.text.length < 3 || req.body.text.length > 1000) {
+        return res.status(400).send({
+            success: false,
+            message: 'Please provide text of at-least 3 and at most 1000 characters length',
+        });
+    }
+
+    try {
+        // Find a document with the provided text
+        const postByText = await Post.findOne({ text: req.body.text });
+
+        // Check for existence - If exists, user cannot post with the provided text
+        if (postByText) {
+            return res.status(400).send({
+                success: false,
+                message: 'Posting failed - provided post is already exist'
+            });
+        }
+
+        // Creating the post
+        const newPost = new Post({
+            description: req.body.description,
+            text: req.body.text,
+        });
+
+        console.log(newPost)
+
+        // Saving the post in DB
+        await newPost.save();
+
+        res.status(201).send({
+            success: true,
+            message: 'Successfully created a new post',
+        });
+    } catch {
+        res.status(500).send({
+            success: false,
+            message: 'Server error',
+        });
+    }
+}
+
 module.exports = {
     handleLogin,
     handleRegister,
     getUsername,
+    postBlog,
 }

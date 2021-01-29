@@ -1,0 +1,54 @@
+.nav {
+  width: 100%;
+  z-index: 1;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  padding: 0 10px;
+  background-color: #242424; }
+
+.navInner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto; }
+  .navInner .navButton {
+    transition: all .3s ease;
+    color: #FFF;
+    font-size: 1.6rem;
+    text-decoration: none; }
+    .navInner .navButton:not(:last-child) {
+      margin-right: 15px; }
+    .navInner .navButton:hover {
+      color: #1f52a3; }
+  .navInner .authButtonsContainer {
+    display: flex; }
+    .navInner .authButtonsContainer__button {
+      transition: all .3s ease;
+      color: #FFF;
+      font-size: 1.6rem;
+      text-decoration: none; }
+      .navInner .authButtonsContainer__button:not(:last-child) {
+        margin-right: 15px; }
+      .navInner .authButtonsContainer__button:hover {
+        color: #1f52a3; }
+  .navInner .navUserContainer {
+    display: none;
+    align-items: center; }
+    .navInner .navUserContainer__button {
+      transition: all .3s ease;
+      color: #FFF;
+      font-size: 1.6rem;
+      text-decoration: none; }
+      .navInner .navUserContainer__button:hover {
+        color: #1f52a3; }
+    .navInner .navUserContainer__divider {
+      width: 1px;
+      height: 20px;
+      background-color: #FFF;
+      margin: 0 10px; }
+    .navInner .navUserContainer__username {
+      color: #FFF;
+      font-size: 1.6rem; }

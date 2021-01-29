@@ -1,15 +1,37 @@
 body {
-  background: linear-gradient(#1488CC, #2B32B2);
-  background-attachment: fixed; }
+  background-color: #add8e6; }
 
-.container {
-  background: white;
-  box-shadow: 2px 2px 8px black;
-  border-radius: 20px;
+.postBlogForm {
+  padding: 0 10px;
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 45%;
-  height: 650px;
-  margin: 10.5% auto;
   flex-direction: column; }
+  .postBlogForm__header {
+    font-size: 5.5rem;
+    font-weight: 900;
+    align-self: center;
+    margin-bottom: 30px; }
+  .postBlogForm__input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #6fc8e6;
+    margin-bottom: 30px; }
+  .postBlogForm__textarea {
+    padding: 10px;
+    border: 2px solid #6fc8e6;
+    resize: none; }
+  .postBlogForm__submit {
+    transition: all .3s ease;
+    max-width: 100%;
+    align-self: center;
+    margin-top: 40px;
+    color: white;
+    background-color: black;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 2.5rem; }
+    .postBlogForm__submit:hover {
+      color: black;
+      background-color: white; }

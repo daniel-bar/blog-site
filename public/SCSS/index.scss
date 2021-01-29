@@ -1,73 +1,7 @@
 @import "./config";
 
-.nav {
-    width: 100%;
-    z-index: 1;
-    height: 50px;
-    position: sticky;
-    top: 0;
-    padding: 0 map-get($sizes, minimal-padding);
-    background-color: map-get($colors, nav-background);
-}
-
-.navInner {
-    height: 100%;
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    max-width: map-get($sizes, web-width);
-    margin: 0 auto;
-
-    .navButton {
-        transition: all .3s ease;
-        color: #FFF;
-        font-size: 1.6rem;
-        text-decoration: none;
-
-        &:not(:last-child) {
-            margin-right: 15px;
-        }
-
-        &:hover {
-            color: map-get($colors, primary);
-        }
-    }
-
-    .authButtonsContainer {
-        display: flex;
-
-        &__button {
-            transition: all .3s ease;
-            color: #FFF;
-            font-size: 1.6rem;
-            text-decoration: none;
-            
-            &:not(:last-child) {
-                margin-right: 15px;
-            }
-    
-            &:hover {
-                color: map-get($colors, primary);
-            }
-        }
-    }
-
-    .usernameText {
-        display: none;
-        color: #FFF;
-        font-size: 1.6rem;
-    }
-
-    .logoutButton {
-        display: flex;
-        border: solid 1px red;
-        color: #FFF;
-        font-size: 1.6rem;
-        text-decoration: none;
-    }
-}
-
 .introContainer {
+    width: 100%;
     padding: 15px map-get($sizes, minimal-padding);
 }
 
@@ -77,26 +11,26 @@
     max-width: map-get($sizes, web-width);
     margin: 0 auto;
     position: relative;
-
+    
     .infoContainer {
         display: flex;
         flex-direction: column;
-
+        
         &__title {
             font-size: 5rem;
         }
-
+        
         &__divider {
             background-color: #a8a8a8;
             height: 1px;
             width: 95%;
         }
     }
-
+    
     .infoContainerLinks {
         display: flex;
         flex-direction: column;
-
+        
         &__preText {
             font-size: 2.5rem;
         }
@@ -164,10 +98,12 @@
 }
 
 .postsContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     max-width: map-get($sizes, web-width);
+    
     
     .postContainer {
         display: flex;
@@ -188,30 +124,6 @@
 
         &__description {
             font-size: 1.4rem;
-        }
-    }
-}
-
-.footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .footerInner {
-        width: 100%;
-        background-color: map-get($colors, footer-background);
-        padding: 30px;
-    
-        &__header {
-            color: map-get($colors, footer-text);
-            font-size: 1.5rem;
-            text-align: center;
-        }
-    
-        &__bottom {
-            color: map-get($colors, footer-text);
-            font-size: 1.5rem;
-            text-align: center;
         }
     }
 }

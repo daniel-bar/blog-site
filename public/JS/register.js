@@ -11,7 +11,7 @@ $(document).ready(() => {
     let onSendRequest = false;
 
     // Handle registration action
-    $registerFormELM.on('submit', async, (event) => {
+    $registerFormELM.on('submit', async (event) => {
         event.preventDefault();
 
         if (!onSendRequest) {
@@ -33,10 +33,10 @@ $(document).ready(() => {
             const serverResponseData = await serverResponse.json();
 
             if (serverResponseData.success) {
-                localStorage.setItem('auth_token', serverResponseData.token);
+                localStorage.setItem('auth_token', serverResponseData.data.token);
                 window.location.href = '/';
             } else {
-                $errorELM.html(serverResponseData.message);
+                $errorELM.html(serverResponseData.data.message);
 
                 $errorELM.show({ duration: 1000 });
                 await sleep(2000);

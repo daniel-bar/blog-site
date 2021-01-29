@@ -20,53 +20,6 @@ body {
   white-space: nowrap;
 }
 
-.nav {
-  padding: 0 map-get($sizes, minimal-padding);
-  background-color: #242424;
-}
-
-.navInner {
-  z-index: 1;
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  max-width: map-get($sizes, web-width);
-  margin: 0 auto;
-
-  .buttonsContainer {
-    display: flex;
-  }
-
-  .navButton {
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    color: #d3d1d1;
-    font-size: 1.6rem;
-    text-decoration: none;
-    padding: 0 10px;
-
-    &:hover {
-      color: #ffffff;
-    }
-  }
-
-  .authButton {
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    color: #d3d1d1;
-    font-size: 1.6rem;
-    text-decoration: none;
-    padding: 10px;
-
-    &:hover {
-      color: #ffffff;
-    }
-  }
-}
-
 .register-form {
   height: 100vh;
   background-image: url(../images/background.jpeg);

@@ -1,0 +1,82 @@
+@import "./config";
+
+.nav {
+    width: 100%;
+    z-index: 1;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    padding: 0 map-get($sizes, minimal-padding);
+    background-color: map-get($colors, nav-background);
+}
+
+.navInner {
+    height: 100%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    max-width: map-get($sizes, web-width);
+    margin: 0 auto;
+    
+    .navButton {
+        transition: all .3s ease;
+        color: #FFF;
+        font-size: 1.6rem;
+        text-decoration: none;
+        
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+        
+        &:hover {
+            color: map-get($colors, primary);
+        }
+    }
+    
+    .authButtonsContainer {
+        display: flex;
+        
+        &__button {
+            transition: all .3s ease;
+            color: #FFF;
+            font-size: 1.6rem;
+            text-decoration: none;
+            
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+            
+            &:hover {
+                color: map-get($colors, primary);
+            }
+        }
+    }
+
+    .navUserContainer {
+        display: none;
+        align-items: center;
+
+        &__button {
+            transition: all .3s ease;
+            color: #FFF;
+            font-size: 1.6rem;
+            text-decoration: none;
+
+            &:hover {
+                color: map-get($colors, primary);
+            }
+        }
+
+        &__divider {
+            width: 1px;
+            height: 20px;
+            background-color: #FFF;
+            margin: 0 10px;
+        }
+
+        &__username {
+            color: #FFF;
+            font-size: 1.6rem;
+        }
+    }
+}
