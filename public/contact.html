@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="stylesheet" href="./CSS/nav.css">
-    <link rel="stylesheet" href="./CSS/post-blog.css">
+    <link rel="stylesheet" href="./CSS/contact.css">
     <link rel="stylesheet" href="./CSS/footer.css">
 </head>
 
@@ -42,7 +42,7 @@
             </div>
 
             <div id="navUserContainer" class="navUserContainer">
-                <a id="logoutButton" class="navUserContainer__button" href="/post-blog.html">Logout</a>
+                <a id="logoutButton" class="navUserContainer__button" href="/contact.html">Logout</a>
                 <div class="navUserContainer__divider"></div>
                 <span id="usernameText" class="navUserContainer__username"></span>
             </div>
@@ -50,13 +50,11 @@
     </nav>
 
     <div class="pageContent">
-        <form id="postBlogForm" class="postBlogForm">
-            <div class="postBlogForm__header">Post blog</div>
-            <input id="postBlogFormTitleInput" class="postBlogForm__input" type="text" placeholder="Post title..."
-                minlength="3" maxlength="50">
-            <textarea id="postBlogFormContentInput" class="postBlogForm__textarea" type="text"
-                placeholder="Post content..." minlength="3" maxlength="1000" rows="10"></textarea>
-            <button class="postBlogForm__submit" type="submit">Post your blog</button>
+        <form id="contactForm" class="contactForm">
+            <div class="contactForm__header">Contact us</div>
+            <textarea id="contactFormContentInput" class="contactForm__textarea" type="text" placeholder="Message..."
+                minlength="3" maxlength="1000" rows="10"></textarea>
+            <button class="contactForm__submit" type="submit">Send Massage</button>
         </form>
     </div>
 

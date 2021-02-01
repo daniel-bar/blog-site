@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 
 const authRouter = require('./router/auth');
+const blogRouter = require('./router/blog');
 
 require('./db/mongoose');
 
@@ -28,5 +29,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRouter);
+app.use('/api/blog', blogRouter);
 
 module.exports = app;

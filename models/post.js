@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
-    description: {
+    title: {
         type: String,
         minlength: 3,
         maxlength: 50,
         required: true,
     },
-    text: {
+    content: {
         type: String,
         minlength: 3,
         maxlength: 1000,

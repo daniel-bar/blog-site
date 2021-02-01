@@ -12,29 +12,49 @@
     margin: 0 auto;
     position: relative;
     
-    .infoContainer {
+    .profileContainer {
         display: flex;
         flex-direction: column;
-        
-        &__title {
-            font-size: 5rem;
+        font-size: 2rem;
+        font-weight: 900;
+        padding: 30px;
+
+        &__details {
+            font-size: 2rem;
+            font-weight: 900;
+            text-decoration: underline;
         }
         
-        &__divider {
-            background-color: #a8a8a8;
-            height: 1px;
-            width: 95%;
+        &__username {
+            font-size: 2rem;
+            font-weight: 900;
         }
+
+        &__email {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        &__statistics {
+            font-size: 2rem;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        &__blogsNumber {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        &__viewsNumber {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+    
     }
     
-    .infoContainerLinks {
-        display: flex;
-        flex-direction: column;
-        
-        &__preText {
-            font-size: 2.5rem;
-        }
-    }
+  
 
     .infoContainerLinksContainer {
         display: flex;
@@ -50,49 +70,6 @@
 
             &:hover {
                 color: map-get($colors, primary);
-            }
-        }
-    }
-
-    .moreTextContainer {
-        align-self: flex-start;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-
-        &__text {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            text-decoration: none;
-            color: #666;
-            font-size: 1.7rem;
-        }
-
-        &__divider {
-            background-color: #a8a8a8;
-            height: 1px;
-            width: 90%;
-        }
-
-        .button {
-            transition: all 1.3s ease;
-            display: flex;
-            flex-direction: column;
-            margin-top: 40px;
-            background-image: linear-gradient( #44b9e0,  #add8e6);
-            border-radius: 30px;
-            padding: 10px 10px;
-
-            &__text {
-                color: white;
-                text-decoration: none;
-                font-size: 2.3rem;
-                font-weight: 900;
-            }
-
-            &:hover {
-                background-color: #000000;
-                background-image: linear-gradient(#000000 0%, #434343 74%);
             }
         }
     }

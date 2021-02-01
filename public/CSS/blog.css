@@ -1,0 +1,28 @@
+body {
+  background-color: #add8e6; }
+
+.blog {
+  padding: 0 10px;
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
+  .blog__title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    align-items: left;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 3px; }
+  .blog__content {
+    font-size: 1.5rem;
+    font-weight: 900;
+    align-self: center;
+    padding: 30px;
+    background-color: #6fc8e6;
+    border-radius: 5px; }
+  .blog__author {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-left: 3px; }

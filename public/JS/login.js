@@ -6,13 +6,6 @@
     }
 
     $(document).ready(() => {
-        // Username and auth buttons elements
-        const $authButtonsContainerELM = $('#authButtonsContainer');
-        const $navUserContainerELM = $('#navUserContainer');
-
-        $authButtonsContainerELM.css('display', 'flex');
-        $navUserContainerELM.css('display', 'none');
-
         // Form elements
         const $loginFormELM = $('#loginForm');
         const $formEmailELM = $('#formEmail');

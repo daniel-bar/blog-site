@@ -1,7 +1,7 @@
 @import "./config";
 
 body {
-    background-color: map-get($colors, postBlogPage-background);
+    background-color: map-get($colors, contactPage-background);
 }
 
 .error {
@@ -20,7 +20,7 @@ body {
     white-space: nowrap;
 }
 
-.postBlogForm {
+.contactForm {
     padding: 0 map-get($sizes, minimal-padding);
     width: 600px;
     max-width: 100%;
@@ -36,16 +36,9 @@ body {
         margin-bottom: 10px;
     }
 
-    &__input {
-        width: 100%;
-        padding: 10px;
-        border: 2px solid map-get($colors, postBlogPage-border);
-        margin-bottom: 30px;
-    }
-
     &__textarea {
         padding: 10px;
-        border: 2px solid map-get($colors, postBlogPage-border);
+        border: 2px solid map-get($colors, contactPage-border);
         resize: none;
     }
 

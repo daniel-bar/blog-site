@@ -1,5 +1,5 @@
 const postBlog = async (data) => {
-    const serverResponse = await fetch('api/auth/postBlog', {
+    const serverResponse = await fetch('api/blog/postBlog', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

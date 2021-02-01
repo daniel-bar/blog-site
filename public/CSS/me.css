@@ -1,0 +1,75 @@
+.introContainer {
+  width: 100%;
+  padding: 15px 10px; }
+
+.introInner {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; }
+  .introInner .profileContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 30px; }
+    .introInner .profileContainer__details {
+      font-size: 2rem;
+      font-weight: 900;
+      text-decoration: underline; }
+    .introInner .profileContainer__username {
+      font-size: 2rem;
+      font-weight: 900; }
+    .introInner .profileContainer__email {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 8px; }
+    .introInner .profileContainer__statistics {
+      font-size: 2rem;
+      font-weight: 900;
+      text-decoration: underline; }
+    .introInner .profileContainer__blogsNumber {
+      font-size: 2rem;
+      font-weight: 900; }
+    .introInner .profileContainer__viewsNumber {
+      font-size: 2rem;
+      font-weight: 900; }
+  .introInner .infoContainerLinksContainer {
+    display: flex; }
+    .introInner .infoContainerLinksContainer__link {
+      transition: all .3s ease;
+      color: #000;
+      font-size: 2.5rem; }
+      .introInner .infoContainerLinksContainer__link:not(:last-child) {
+        margin-right: 2px; }
+      .introInner .infoContainerLinksContainer__link:hover {
+        color: #6fc8e6; }
+
+.postsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 10px; }
+  .postsContainer .postContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #add8e6;
+    border: 2px solid #6fc8e6;
+    padding: 10px; }
+    .postsContainer .postContainer:not(:last-child) {
+      margin-bottom: 5px; }
+    .postsContainer .postContainer__title {
+      color: #355087;
+      font-weight: 900;
+      font-size: 2.2rem; }
+    .postsContainer .postContainer__description {
+      font-size: 1.4rem; }
+    .postsContainer .postContainer__category {
+      font-size: 1.3rem;
+      text-decoration: none; }
+    .postsContainer .postContainer__author {
+      align-self: flex-end;
+      font-size: 1.2rem; }

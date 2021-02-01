@@ -4,7 +4,8 @@ const {
     handleLogin,
     handleRegister,
     getUsername,
-    postBlog,
+    getSelfDetails,
+    getUserDetails,
 } = require('../controller/auth');
 
 const {
@@ -39,13 +40,17 @@ router.get(
     getUsername,
 );
 
-router.post(
-    '/postBlog',
-    bodyKeys([
-        { key: 'description', type: 'string' },
-        { key: 'text', type: 'string' },
-    ]),
-    postBlog,
+router.get(
+    '/getSelfDetails',
+    auth,
+    getSelfDetails,
+);
+
+router.get(
+    '/getUserDetails',
+    bodyKeys([{ key: 'userID', type: 'string' }]),
+    auth,
+    getUserDetails,
 );
 
 module.exports = router;

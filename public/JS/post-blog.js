@@ -53,8 +53,8 @@ let username;
             }
 
             const data = {
-                description: $descriptionELM.val(),
-                text: $textELM.val(),
+                title: $postBlogFormTitleInputELM.val(),
+                content: $postBlogFormContentInputELM.val(),
             }
 
             try {

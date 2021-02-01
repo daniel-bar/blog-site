@@ -75,8 +75,14 @@
         }
 
         &__username {
+            transition: all .3s ease;
             color: #FFF;
             font-size: 1.6rem;
+            text-decoration: none;
+
+            &:hover {
+                color: map-get($colors, primary);
+            }
         }
     }
 }

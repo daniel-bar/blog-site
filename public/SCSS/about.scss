@@ -1,0 +1,33 @@
+@import "./config";
+
+body {
+    background-color: map-get($colors, aboutUsPage-background);
+}
+
+
+.aboutUs {
+    padding: 0 map-get($sizes, minimal-padding);
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-size: 4.5rem;
+        font-weight: 900;
+        align-self: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__content {
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 900;
+        align-self: center;
+        padding: 30px;
+        background-color: map-get($colors, aboutUsPage-border);
+        border-radius: 5px;
+    }
+}

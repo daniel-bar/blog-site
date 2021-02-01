@@ -22,7 +22,7 @@
     .navInner .navButton:not(:last-child) {
       margin-right: 15px; }
     .navInner .navButton:hover {
-      color: #1f52a3; }
+      color: #6fc8e6; }
   .navInner .authButtonsContainer {
     display: flex; }
     .navInner .authButtonsContainer__button {
@@ -33,7 +33,7 @@
       .navInner .authButtonsContainer__button:not(:last-child) {
         margin-right: 15px; }
       .navInner .authButtonsContainer__button:hover {
-        color: #1f52a3; }
+        color: #6fc8e6; }
   .navInner .navUserContainer {
     display: none;
     align-items: center; }
@@ -43,12 +43,16 @@
       font-size: 1.6rem;
       text-decoration: none; }
       .navInner .navUserContainer__button:hover {
-        color: #1f52a3; }
+        color: #6fc8e6; }
     .navInner .navUserContainer__divider {
       width: 1px;
       height: 20px;
       background-color: #FFF;
       margin: 0 10px; }
     .navInner .navUserContainer__username {
+      transition: all .3s ease;
       color: #FFF;
-      font-size: 1.6rem; }
+      font-size: 1.6rem;
+      text-decoration: none; }
+      .navInner .navUserContainer__username:hover {
+        color: #6fc8e6; }

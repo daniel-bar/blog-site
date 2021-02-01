@@ -42,6 +42,37 @@ const handleLogin = async (data) => {
     });
 
     return serverResponse.json();
+};
+
+const handleRegister = async (data) => {
+    const serverResponse = await fetch('api/auth/handleRegister', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+
+    return serverResponse.json();
+};
+
+const getSelfDetails = async () => {
+    const serverResponse = await fetch('/api/auth/getSelfDetails', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('auth_token') || ''}`,
+        },
+    });
+    return serverResponse.json();
 }
 
-// Handle registration..
+const getUserDetails = async (data) => {
+    const serverResponse = await fetch('/api/auth/getUserDetails', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('auth_token') || ''}`,
+        },
+        body: JSON.stringify(data),
+    });
+    return serverResponse.json();
+};

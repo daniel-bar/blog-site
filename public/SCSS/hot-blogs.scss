@@ -1,0 +1,54 @@
+
+@import "./config";
+
+.pageContent {
+    &__header {
+        font-size: 4.5rem;
+        font-weight: 900;
+        align-self: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.postsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: map-get($sizes, web-width);
+    padding: map-get($sizes, minimal-padding);
+    
+    
+    .postContainer {
+        display: flex;
+        flex-direction: column;
+        background-color: map-get($colors, post-background);
+        border: 2px solid map-get($colors, post-border);
+        padding: 10px;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+
+        &__title {
+            color: map-get($colors, post-title);
+            font-weight: 900;
+            font-size: 2.2rem;
+        }
+
+        &__description {
+            font-size: 1.4rem;
+        }
+
+        &__category {
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+        &__author {
+            align-self: flex-end;
+            font-size: 1.2rem;
+        }
+    }
+}
