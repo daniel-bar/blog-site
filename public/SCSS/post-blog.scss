@@ -41,12 +41,37 @@ body {
         padding: 10px;
         border: 2px solid map-get($colors, postBlogPage-border);
         margin-bottom: 30px;
+
+        &:hover {
+            border: 2px solid map-get($colors, postBlogPage-hover);
+        }
     }
 
     &__textarea {
         padding: 10px;
         border: 2px solid map-get($colors, postBlogPage-border);
         resize: none;
+
+        &:hover {
+            border: 2px solid map-get($colors, postBlogPage-hover);
+        }
+    }
+
+    &__category {
+        font-size: 1.5rem;
+        font-weight: 900;
+        align-self: left;
+        margin-top: 20px;
+    }
+
+    &__categorySelector {
+        padding: 10px;
+        border: 2px solid map-get($colors, postBlogPage-border);
+        width: 20%;
+
+        &:hover {
+            border: 2px solid map-get($colors, postBlogPage-hover);
+        }
     }
 
     &__submit {

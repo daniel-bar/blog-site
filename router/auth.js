@@ -6,6 +6,7 @@ const {
     getUsername,
     getSelfDetails,
     getUserDetails,
+    updateProfile,
 } = require('../controller/auth');
 
 const {

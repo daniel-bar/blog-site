@@ -12,20 +12,16 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 
     &__title {
         font-size: 2.5rem;
-        font-weight: 900;
-        align-items: left;
-        margin-top: 40px;
         margin-bottom: 10px;
-        margin-left: 3px;
     }
 
     &__content {
         font-size: 1.5rem;
         font-weight: 900;
-        align-self: center;
         padding: 30px;
         background-color: map-get($colors, blogPage-border);
         border-radius: 5px;
@@ -34,6 +30,34 @@ body {
     &__author {
         font-size: 1.5rem;
         margin-top: 5px;
-        margin-left: 3px;
+    }
+}
+
+.commentForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 10px;
+
+    &__texterea {
+        padding: 10px;
+        border: 2px solid map-get($colors, postBlogPage-border);
+        resize: none;
+    }
+
+    &__submit {
+        transition: all .3s ease;
+        align-self: flex-start;
+        color: #FFF;
+        background-color: #000;
+        margin-top: 10px;
+        border-radius: 30px;
+        padding: 10px 30px;
+        font-size: 2.3rem;
+
+        &:hover {
+            color: #000;
+            background-color: #FFF;
+        }
     }
 }

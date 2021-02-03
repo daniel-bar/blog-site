@@ -1,5 +1,3 @@
-1. עמוד פרופיל - אתה רואה שם את הפרטים של המשתמש שלך, ויש לך אפשרות לערוך אימייל וסיסמה. כניסה אליו מתבצעת דרך לחיצה על השם משתמש שלך למעלה בNAV.
-
-
-MORE - 
-צריך להגביל את הכמות פוסטים ל10 בעמוד בית וחמים
+1. Update profile functionality
+2. Add category selection in "POST BLOG"
+3. in Post page- add comments list related with the post and form to comment

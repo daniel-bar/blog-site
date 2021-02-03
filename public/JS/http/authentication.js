@@ -62,8 +62,9 @@ const getSelfDetails = async () => {
             'Authorization': `Bearer ${localStorage.getItem('auth_token') || ''}`,
         },
     });
+
     return serverResponse.json();
-}
+};
 
 const getUserDetails = async (data) => {
     const serverResponse = await fetch('/api/auth/getUserDetails', {
@@ -74,5 +75,6 @@ const getUserDetails = async (data) => {
         },
         body: JSON.stringify(data),
     });
+
     return serverResponse.json();
 };

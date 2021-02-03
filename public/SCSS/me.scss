@@ -5,74 +5,41 @@
     padding: 15px map-get($sizes, minimal-padding);
 }
 
-.introInner {
-    display: flex;
-    justify-content: space-between;
+.profileContainer {
     max-width: map-get($sizes, web-width);
     margin: 0 auto;
-    position: relative;
-    
-    .profileContainer {
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 2px 2px 5px #5e5e5e;
+    border-radius: 6px;
+    padding: 10px 20px;
+
+    &__header {
+        text-decoration: underline;
         font-size: 2rem;
-        font-weight: 900;
-        padding: 30px;
-
-        &__details {
-            font-size: 2rem;
-            font-weight: 900;
-            text-decoration: underline;
-        }
-        
-        &__username {
-            font-size: 2rem;
-            font-weight: 900;
-        }
-
-        &__email {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 8px;
-        }
-
-        &__statistics {
-            font-size: 2rem;
-            font-weight: 900;
-            text-decoration: underline;
-        }
-
-        &__blogsNumber {
-            font-size: 2rem;
-            font-weight: 900;
-        }
-
-        &__viewsNumber {
-            font-size: 2rem;
-            font-weight: 900;
-        }
-    
+        margin-bottom: 10px;
     }
-    
-  
 
-    .infoContainerLinksContainer {
-        display: flex;
+    &__text {
+        font-size: 1.6rem;
+    }
 
-        &__link {
-            transition: all .3s ease;
-            color: #000;
-            font-size: 2.5rem;
+    &__link {
+        transition: all .3s ease;
+        text-decoration: none;
+        font-size: 1.8rem;
+        margin: 10px 0;
+        background-color: rgba(map-get($colors, primary), .7);
+        border-radius: 6px;
+        padding: 5px 8px;
+        color: #FFF;
 
-            &:not(:last-child) {
-                margin-right: 2px;
-            }
-
-            &:hover {
-                color: map-get($colors, primary);
-            }
+        &:hover {
+            background-color: map-get($colors, primary);
         }
     }
+
 }
 
 .postsContainer {
@@ -81,7 +48,6 @@
     flex-direction: column;
     margin: 0 auto;
     max-width: map-get($sizes, web-width);
-    padding: map-get($sizes, minimal-padding);
     
     .postContainer {
         display: flex;

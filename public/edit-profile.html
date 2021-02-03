@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Post blogs</title>
+    <title>Edit profile</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="stylesheet" href="./CSS/nav.css">
-    <link rel="stylesheet" href="./CSS/post-blog.css">
+    <link rel="stylesheet" href="./CSS/edit-profile.css">
     <link rel="stylesheet" href="./CSS/footer.css">
 </head>
 
@@ -21,8 +21,9 @@
     <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
 
     <script src="./JS/http/authentication.js"></script>
+    <script src="./JS/http/user.js"></script>
 
-    <script src="./JS/http/blog.js"></script>
+    <script src="./JS/edit-profile.js"></script>
 
     <span id="error" class="error"></span>
 
@@ -50,20 +51,28 @@
     </nav>
 
     <div class="pageContent">
-        <form id="postBlogForm" class="postBlogForm">
-            <div class="postBlogForm__header">Post blog</div>
-            <input id="postBlogFormTitleInput" class="postBlogForm__input" type="text" placeholder="Post title..."
-                minlength="3" maxlength="50">
-            <textarea id="postBlogFormContentInput" class="postBlogForm__textarea" type="text"
-                placeholder="Post content..." minlength="3" maxlength="1000" rows="10"></textarea>
-            <label class="postBlogForm__category" for="category">Choose a category:</label>
-            <select class="postBlogForm__categorySelector" name="category">
-                <option value="sport">Volvo</option>
-                <option value="fitness">Saab</option>
-                <option value="style">Opel</option>
-            </select>
-            <button class="postBlogForm__submit" type="submit">Post your blog</button>
-        </form>
+        <div class="editProfile">
+            <form id="editProfileForm" class="editProfileForm">
+                <h1 class="editProfileForm__header">Update your profile</h1>
+
+                <span class="editProfileForm__headlines">Enter your current password to change your password or email
+                </span>
+                <input id="currentPassword" class="editProfileForm__input" type="password"
+                    placeholder="Enter current password" minlength="7" maxlength="24">
+
+                <span class="editProfileForm__headlines">Enter new email address</span>
+                <input id="newEmail" class="editProfileForm__input" type="email" placeholder="Enter email"
+                    maxlength="320">
+
+                <span class="editProfileForm__headlines">Enter new password</span>
+                <input id="newPassword" class="editProfileForm__input" type="password" placeholder="Enter new password"
+                    minlength="7" maxlength="24">
+                <input id="newPasswordRepeat" class="editProfileForm__input" type="password"
+                    placeholder="repeat new password" minlength="7" maxlength="24">
+
+                <button class="editProfileForm__submit" type="submit">Save changes</button>
+            </form>
+        </div>
     </div>
 
     <footer class="footer">

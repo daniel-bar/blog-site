@@ -34,10 +34,25 @@ body {
     padding: 10px;
     border: 2px solid #6fc8e6;
     margin-bottom: 30px; }
+    .postBlogForm__input:hover {
+      border: 2px solid #419fbe; }
   .postBlogForm__textarea {
     padding: 10px;
     border: 2px solid #6fc8e6;
     resize: none; }
+    .postBlogForm__textarea:hover {
+      border: 2px solid #419fbe; }
+  .postBlogForm__category {
+    font-size: 1.5rem;
+    font-weight: 900;
+    align-self: left;
+    margin-top: 20px; }
+  .postBlogForm__categorySelector {
+    padding: 10px;
+    border: 2px solid #6fc8e6;
+    width: 20%; }
+    .postBlogForm__categorySelector:hover {
+      border: 2px solid #419fbe; }
   .postBlogForm__submit {
     transition: all .3s ease;
     max-width: 100%;

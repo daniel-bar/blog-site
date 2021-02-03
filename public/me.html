@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>post blog</title>
+    <title>Profile</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
@@ -41,33 +41,50 @@
         </div>
     </nav>
 
-    <div class="introContainer">
-        <div class="introInner">
+    <div class="pageContent">
+        <div class="introContainer">
             <div id="profileContainer" class="profileContainer">
-                <div class="profileContainer__details">Details -</div>
-                <div id="profileUsernameText" class="profileContainer__username"></div>
-                <div id="profileEmailText" class="profileContainer__email"></div>
-                <div class="profileContainer__statistics">Statistics -</div>
-                <div class="profileContainer__blogsNumber"></div>
+                <h1 class="profileContainer__header">Details:</h1>
+
+                <span id="profileUsernameText" class="profileContainer__text"></span>
+                <span id="profileEmailText" class="profileContainer__text"></span>
+
+                <a class="profileContainer__link" href="/edit-profile.html">Edit your profile</a>
+
+                <h1 class="profileContainer__header">Statistics:</h1>
+
+                <span class="profileContainer__text">Posts created: 4</span>
+                <span class="profileContainer__text">Comments created: 41</span>
+            </div>
+        </div>
+
+        <div class="postsContainer">
+            <div class="postContainer">
+                <span class="postContainer__title">Post title</span>
+                <span class="postContainer__description">Post description</span>
+                <span class="postContainer__category">#category</span>
+                <span class="postContainer__author">Muhamad</span>
+            </div>
+            <div class="postContainer">
+                <span class="postContainer__title">Post title</span>
+                <span class="postContainer__description">Post description</span>
+                <span class="postContainer__category">#category</span>
+                <span class="postContainer__author">Muhamad</span>
+            </div>
+            <div class="postContainer">
+                <span class="postContainer__title">Post title</span>
+                <span class="postContainer__description">Post description</span>
+                <span class="postContainer__category">#category</span>
+                <span class="postContainer__author">Muhamad</span>
+            </div>
+            <div class="postContainer">
+                <span class="postContainer__title">Post title</span>
+                <span class="postContainer__description">Post description</span>
+                <span class="postContainer__category">#category</span>
+                <span class="postContainer__author">Muhamad</span>
             </div>
         </div>
     </div>
-
-    <div class="postsContainer">
-        <div class="postContainer">
-            <span class="postContainer__title">Post title</span>
-            <span class="postContainer__description">Post description</span>
-            <span class="postContainer__category">#category</span>
-            <span class="postContainer__author">Muhamad</span>
-        </div>
-        <div class="postContainer">
-            <span class="postContainer__title">Post title</span>
-            <span class="postContainer__description">Post description</span>
-            <span class="postContainer__category">#category</span>
-            <span class="postContainer__author">Muhamad</span>
-        </div>
-    </div>
-
 
     <footer class="footer">
         <h1 class="footer__text">

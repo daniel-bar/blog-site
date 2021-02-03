@@ -1,0 +1,69 @@
+@import "./config";
+
+body {
+    background-color: map-get($colors, postBlogPage-background);
+}
+
+.error {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid map-get($colors, strong-error);
+    background-color: map-get($colors, light-error);
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 5px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.editProfile {
+    width: 100%;
+    padding: 0 map-get($sizes, minimal-padding);
+}
+
+.editProfileForm {
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    &__header {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+    }
+
+    &__headlines {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid map-get($colors, postBlogPage-border);
+        margin-bottom: 5px;
+    }
+
+    &__submit {
+        transition: all .3s ease;
+        max-width: 100%;
+        align-self: center;
+        margin-top: 20px;
+        color: white;
+        background-color: #000;
+        border-radius: 30px;
+        padding: 10px 30px; 
+        font-size: 2.5rem;
+
+        &:hover {
+            color: #000;
+            background-color: #FFF;
+        }
+    }
+}

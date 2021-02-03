@@ -1,0 +1,53 @@
+body {
+  background-color: #add8e6; }
+
+.error {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #852727;
+  background-color: #c73e3e;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 5px 12px;
+  text-align: center;
+  white-space: nowrap; }
+
+.editProfile {
+  width: 100%;
+  padding: 0 10px; }
+
+.editProfileForm {
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; }
+  .editProfileForm__header {
+    font-size: 3.5rem;
+    margin-bottom: 10px; }
+  .editProfileForm__headlines {
+    font-size: 1.7rem;
+    margin-bottom: 10px; }
+  .editProfileForm__input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #6fc8e6;
+    margin-bottom: 5px; }
+  .editProfileForm__submit {
+    transition: all .3s ease;
+    max-width: 100%;
+    align-self: center;
+    margin-top: 20px;
+    color: white;
+    background-color: #000;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 2.5rem; }
+    .editProfileForm__submit:hover {
+      color: #000;
+      background-color: #FFF; }

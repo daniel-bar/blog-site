@@ -2,57 +2,39 @@
   width: 100%;
   padding: 15px 10px; }
 
-.introInner {
-  display: flex;
-  justify-content: space-between;
+.profileContainer {
   max-width: 1200px;
   margin: 0 auto;
-  position: relative; }
-  .introInner .profileContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 2px 2px 5px #5e5e5e;
+  border-radius: 6px;
+  padding: 10px 20px; }
+  .profileContainer__header {
+    text-decoration: underline;
     font-size: 2rem;
-    font-weight: 900;
-    padding: 30px; }
-    .introInner .profileContainer__details {
-      font-size: 2rem;
-      font-weight: 900;
-      text-decoration: underline; }
-    .introInner .profileContainer__username {
-      font-size: 2rem;
-      font-weight: 900; }
-    .introInner .profileContainer__email {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 8px; }
-    .introInner .profileContainer__statistics {
-      font-size: 2rem;
-      font-weight: 900;
-      text-decoration: underline; }
-    .introInner .profileContainer__blogsNumber {
-      font-size: 2rem;
-      font-weight: 900; }
-    .introInner .profileContainer__viewsNumber {
-      font-size: 2rem;
-      font-weight: 900; }
-  .introInner .infoContainerLinksContainer {
-    display: flex; }
-    .introInner .infoContainerLinksContainer__link {
-      transition: all .3s ease;
-      color: #000;
-      font-size: 2.5rem; }
-      .introInner .infoContainerLinksContainer__link:not(:last-child) {
-        margin-right: 2px; }
-      .introInner .infoContainerLinksContainer__link:hover {
-        color: #6fc8e6; }
+    margin-bottom: 10px; }
+  .profileContainer__text {
+    font-size: 1.6rem; }
+  .profileContainer__link {
+    transition: all .3s ease;
+    text-decoration: none;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    background-color: rgba(111, 200, 230, 0.7);
+    border-radius: 6px;
+    padding: 5px 8px;
+    color: #FFF; }
+    .profileContainer__link:hover {
+      background-color: #6fc8e6; }
 
 .postsContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 10px; }
+  max-width: 1200px; }
   .postsContainer .postContainer {
     display: flex;
     flex-direction: column;

@@ -47,8 +47,9 @@
 
     <div class="pageContent">
         <div class="blog">
-            <div class="blog__title">Blog title</div>
-            <div class="blog__content">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor
+            <h1 class="blog__title">Blog title</h1>
+            <p class="blog__content">
+                Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor
                 incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam
                 corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in
                 voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non
@@ -58,8 +59,14 @@
                 commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                 pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim
                 id est laborum.
-            </div>
-            <div class="blog__author">By Muhamad</div>
+            </p>
+            <span class="blog__author">By Muhamad</span>
+
+            <form class="commentForm">
+                <textarea class="commentForm__texterea" type="text" placeholder="Enter comment" minlength="3"
+                    maxlength="1000" rows="5"></textarea>
+                <button class="commentForm__submit" type="submit">Comment</button>
+            </form>
         </div>
     </div>
 

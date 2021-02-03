@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const validator = require('validator');
 
 const User = require('../models/user');
 
@@ -63,8 +64,15 @@ const handleRegister = async (req, res, next) => {
         });
     }
 
+    if (!validator.isEmail(req.body.email)) {
+        return res.status(400).send({
+            success: false,
+            message: 'Please provide valid email',
+        });
+    }
+
     try {
-        // Find a document with the provided email
+        // Find a document with the provided email or username
         const matchingUser = await User.findOne(
             {
                 $or: [{ email: req.body.email }, { username: req.body.username }]
@@ -178,7 +186,10 @@ const getSelfDetails = async (req, res, next) => {
 const getUserDetails = async (req, res, next) => {
     try {
         // Retrieve user data by its ID
-        const userByID = await User.findById(req.body.userID, { username: 1, email: 1 });
+        const userByID = await User.findById(req.body.userID, {
+            username: 1,
+            email: 1,
+        });
 
         // Check for existence - If exists, fetch details
         if (userByID) {
