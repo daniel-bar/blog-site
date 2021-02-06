@@ -4,25 +4,9 @@ body {
   position: relative;
 }
 
-.error {
-  display: none;
-  z-index: 2;
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 2px solid map-get($colors, strong-error);
-  background-color: map-get($colors, light-error);
-  color: #fff;
-  font-size: 1.6rem;
-  padding: 5px 12px;
-  text-align: center;
-  white-space: nowrap;
-}
-
 .register-form {
   height: 100vh;
-  background-image: url(../images/background.jpeg);
+  background-image: url(../images/background.jpg);
   background-size: cover;
   display: flex;
   align-items: center;

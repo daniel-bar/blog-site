@@ -1,0 +1,39 @@
+@import "./config";
+
+body {
+    background-color: map-get($colors, aboutUsPage-background);
+}
+
+
+.errorMessage {
+    padding: 0 map-get($sizes, minimal-padding);
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-size: 4.5rem;
+        font-weight: 900;
+        align-self: center;
+        margin-top: 100px;
+    }
+
+    &__content {
+        transition: all .3s ease;
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 900;
+        text-decoration: none;
+        margin-top: 15px;
+        align-self: center;
+        padding: 20px;
+        background-color: map-get($colors, aboutUsPage-border);
+        border-radius: 5px;
+
+        &:hover {
+            background-color: map-get($colors, aboutUsPage-border-hover);
+        }
+    }
+}

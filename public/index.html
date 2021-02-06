@@ -20,6 +20,7 @@
     <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
 
     <script src="./JS/http/authentication.js"></script>
+    <script src="./JS/http/blog.js"></script>
 
     <script src="./JS/index.js"></script>
 
@@ -54,13 +55,7 @@
                     <hr class="infoContainer__divider">
                     <div class="infoContainerLinks">
                         <span class="infoContainerLinks__preText">Blog About</span>
-                        <div class="infoContainerLinksContainer">
-                            <a class="infoContainerLinksContainer__link" href="/blogs/fitness">fitness,</a>
-                            <a class="infoContainerLinksContainer__link" href="/blogs/style">style,</a>
-                            <a class="infoContainerLinksContainer__link" href="/blogs/sport">sport</a>
-                            <span class="infoContainerLinksContainer__link">&</span>
-                            <a class="infoContainerLinksContainer__link" href="/blogs">more</a>
-                        </div>
+                        <div id="infoContainerLinksContainer" class="infoContainerLinksContainer"></div>
                     </div>
                 </div>
                 <div class="moreTextContainer">
@@ -76,50 +71,7 @@
             </div>
         </div>
 
-        <div class="postsContainer">
-            <div class="postContainer">
-                <a class="postContainer__title" href="/blog.html">Post title</a>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-            <div class="postContainer">
-                <span class="postContainer__title">Post title</span>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-            <div class="postContainer">
-                <span class="postContainer__title">Post title</span>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-            <div class="postContainer">
-                <span class="postContainer__title">Post title</span>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-            <div class="postContainer">
-                <span class="postContainer__title">Post title</span>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-            <div class="postContainer">
-                <span class="postContainer__title">Post title</span>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-            <div class="postContainer">
-                <span class="postContainer__title">Post title</span>
-                <span class="postContainer__description">Post description</span>
-                <span class="postContainer__category">#category</span>
-                <span class="postContainer__author">Muhamad</span>
-            </div>
-        </div>
+        <div id="postsContainer" class="postsContainer"></div>
     </div>
 
     <footer class="footer">

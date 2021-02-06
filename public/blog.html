@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Post blogs</title>
+    <title>Blog</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
@@ -21,6 +21,11 @@
     <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
 
     <script src="./JS/http/authentication.js"></script>
+    <script src="./JS/http/blog.js"></script>
+
+    <script src="./JS/blog.js"></script>
+
+    <span id="error" class="error"></span>
 
     <nav class="nav">
         <div class="navInner">
@@ -40,31 +45,24 @@
             <div id="navUserContainer" class="navUserContainer">
                 <a id="logoutButton" class="navUserContainer__button" href="/about.html">Logout</a>
                 <div class="navUserContainer__divider"></div>
-                <span id="usernameText" class="navUserContainer__username"></span>
+                <a id="usernameText" class="navUserContainer__username" href="/me.html"></a>
             </div>
         </div>
     </nav>
 
     <div class="pageContent">
         <div class="blog">
-            <h1 class="blog__title">Blog title</h1>
-            <p class="blog__content">
-                Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor
-                incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam
-                corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet,
-                consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-                commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim
-                id est laborum.
-            </p>
-            <span class="blog__author">By Muhamad</span>
+            <h1 id="blogTitle" class="blog__title"></h1>
+            <p id="blogContent" class="blog__content"></p>
+            <span id="blogAuthor" class="blog__author"></span>
 
-            <form class="commentForm">
-                <textarea class="commentForm__texterea" type="text" placeholder="Enter comment" minlength="3"
-                    maxlength="1000" rows="5"></textarea>
+            <div id="postsContainer" class="postsContainer"></div>
+
+            <div id="commentsContainer" class="commentsContainer"></div>
+
+            <form id="commentForm" class="commentForm">
+                <textarea id="commentFormContent" class="commentForm__texterea" type="text" placeholder="Enter comment"
+                    minlength="3" maxlength="1000" rows="5"></textarea>
                 <button class="commentForm__submit" type="submit">Comment</button>
             </form>
         </div>

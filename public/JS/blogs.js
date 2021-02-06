@@ -38,6 +38,7 @@ let categories = [];
         const $navUserContainerELM = $('#navUserContainer');
         const $usernameTextELM = $('#usernameText');
         const $logoutButtonELM = $('#logoutButton');
+        const $pageHeaderContainerELM = $('#pageHeaderContainer');
         const $postsContainerELM = $('#postsContainer');
         const $infoContainerLinksContainerELM = $('#infoContainerLinksContainer');
 
@@ -55,6 +56,10 @@ let categories = [];
             return window.location.href = '/';
         });
 
+        $pageHeaderContainerELM.html(categories.map((category) => `
+        <div class="pageHeaderContainer__header">${category}</div>
+        `).join(''));
+
         $postsContainerELM.html(posts.map((post) => `
             <div class="postContainer">
                 <a class="postContainer__title" href="/blog.html?id=${post._id}">${post.title}</a>
@@ -62,10 +67,6 @@ let categories = [];
                 <span class="postContainer__category">${post.category}</span>
                 <span class="postContainer__author">${post.ownerUsername}</span>
             </div>
-        `).join(''));
-
-        $infoContainerLinksContainerELM.html(categories.map((category, idx) => `
-            <a class="infoContainerLinksContainer__link" href="/blogs?category=${category}">${category}${idx !== categories.length - 1 ? ',' : ''}</a>
         `).join(''));
     });
 })();

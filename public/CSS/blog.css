@@ -20,7 +20,22 @@ body {
     border-radius: 5px; }
   .blog__author {
     font-size: 1.5rem;
-    margin-top: 5px; }
+    margin-top: 5px;
+    margin-bottom: 15px; }
+  .blog .commentsContainer {
+    display: flex;
+    flex-direction: column; }
+  .blog .commentContainer {
+    background-color: #1E8AAE;
+    border-radius: 5px;
+    padding: 10px; }
+    .blog .commentContainer:not(:last-child) {
+      margin-bottom: 8px; }
+    .blog .commentContainer__content {
+      font-size: 1.4rem;
+      font-weight: 900; }
+    .blog .commentContainer__author {
+      font-size: 1.2rem; }
 
 .commentForm {
   display: flex;

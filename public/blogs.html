@@ -5,29 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact</title>
+    <title>Hot blogs</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="stylesheet" href="./CSS/nav.css">
-    <link rel="stylesheet" href="./CSS/contact.css">
+    <link rel="stylesheet" href="./CSS/blogs.css">
     <link rel="stylesheet" href="./CSS/footer.css">
 </head>
 
 <body>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
 
     <script src="./JS/http/authentication.js"></script>
-    <script src="./JS/http/contact.js"></script>
+    <script src="./JS/http/blog.js"></script>
 
-    <script src="./JS/contact.js"></script>
 
-    <span id="error" class="error"></span>
-
-    <span id="error" class="error"></span>
+    <script src="./JS/blogs.js"></script>
 
     <nav class="nav">
         <div class="navInner">
@@ -45,7 +41,7 @@
             </div>
 
             <div id="navUserContainer" class="navUserContainer">
-                <a id="logoutButton" class="navUserContainer__button" href="/contact.html">Logout</a>
+                <a id="logoutButton" class="navUserContainer__button" href="/">Logout</a>
                 <div class="navUserContainer__divider"></div>
                 <a id="usernameText" class="navUserContainer__username" href="/me.html"></a>
             </div>
@@ -53,12 +49,16 @@
     </nav>
 
     <div class="pageContent">
-        <form id="contactForm" class="contactForm">
-            <div class="contactForm__header">Contact us</div>
-            <textarea id="contactFormContentInput" class="contactForm__textarea" type="text" placeholder="Message..."
-                minlength="3" maxlength="1000" rows="10"></textarea>
-            <button class="contactForm__submit" type="submit">Send Massage</button>
-        </form>
+        <div id="pageHeaderContainer" class="pageHeaderContainer"></div>
+
+        <div id="postsContainer" class="postsContainer">
+            <!-- <div class="postContainer">
+                <span class="postContainer__title">Post title</span>
+                <span class="postContainer__description">Post description</span>
+                <span class="postContainer__category">#category</span>
+                <span class="postContainer__author">Abdala</span>
+            </div> -->
+        </div>
     </div>
 
     <footer class="footer">
@@ -67,8 +67,6 @@
         </h1>
         <h1 class="footer__text">© 2021 Copyright Daniel Inc.</h1>
     </footer>
-
-    <script src="./JS/util/general.js"></script>
 </body>
 
 </html>

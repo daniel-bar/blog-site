@@ -1,6 +1,5 @@
 let isAuthenticated = false;
 let username;
-let categories = [];
 
 (async () => {
     const authenticationResponse = await authenticate();
@@ -8,19 +7,7 @@ let categories = [];
     if (authenticationResponse.success) {
         isAuthenticated = true;
         username = authenticationResponse.data.username;
-    } else if (authenticationResponse.data.not_auth) {
-        return window.location.href = '/login.html';
-    } else {
-        return window.location.href = '/';
     }
-
-    const categoriesResponse = await getCategories();
-
-    if (!categoriesResponse.success) {
-        return window.location.href = '/error.html';
-    }
-
-    categories = categoriesResponse.data.categories;
 
     $(document).ready(() => {
         // Username and auth buttons elements
@@ -28,23 +15,22 @@ let categories = [];
         const $navUserContainerELM = $('#navUserContainer');
         const $usernameTextELM = $('#usernameText');
         const $logoutButtonELM = $('#logoutButton');
-        const $postBlogCategorySelectorELM = $('#postBlogCategorySelector');
+        const $contactFormELM = $('#contactForm');
+        const $contactFormContentInputELM = $('#contactFormContentInput');
 
-        $postBlogCategorySelectorELM.html(categories.map((category) => `<option value="${category}">${category}</option>`).join(('')));
-
-        $authButtonsContainerELM.css('display', 'none');
-        $navUserContainerELM.css('display', 'flex');
-        $usernameTextELM.html(username);
+        if (isAuthenticated) {
+            $authButtonsContainerELM.css('display', 'none');
+            $navUserContainerELM.css('display', 'flex');
+            $usernameTextELM.html(username);
+        } else {
+            $authButtonsContainerELM.css('display', 'flex');
+            $navUserContainerELM.css('display', 'none');
+        }
 
         $logoutButtonELM.on('click', () => {
             localStorage.removeItem('auth_token');
             return window.location.href = '/';
         });
-
-        // Form elements
-        const $postBlogFormELM = $('#postBlogForm')
-        const $postBlogFormTitleInputELM = $('#postBlogFormTitleInput');
-        const $postBlogFormContentInputELM = $('#postBlogFormContentInput');
 
         // Error element
         const $errorELM = $('#error');
@@ -52,21 +38,17 @@ let categories = [];
         let onSendRequest = false;
 
         // Handle posting action
-        $postBlogFormELM.on('submit', async (event) => {
+        $contactFormELM.on('submit', async (event) => {
             event.preventDefault();
 
             if (!onSendRequest) {
                 onSendRequest = true;
             }
 
-            const data = {
-                title: $postBlogFormTitleInputELM.val(),
-                content: $postBlogFormContentInputELM.val(),
-                category: $postBlogCategorySelectorELM.val(),
-            }
+            const data = { message: $contactFormContentInputELM.val() };
 
             try {
-                const serverResponseData = await postBlog(data);
+                const serverResponseData = await contact(data);
 
                 if (serverResponseData.success) {
                     return window.location.href = '/';

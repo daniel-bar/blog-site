@@ -4,22 +4,6 @@ body {
     background-color: map-get($colors, postBlogPage-background);
 }
 
-.error {
-    display: none;
-    z-index: 2;
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 2px solid map-get($colors, strong-error);
-    background-color: map-get($colors, light-error);
-    color: #fff;
-    font-size: 1.6rem;
-    padding: 5px 12px;
-    text-align: center;
-    white-space: nowrap;
-}
-
 .postBlogForm {
     padding: 0 map-get($sizes, minimal-padding);
     width: 600px;
