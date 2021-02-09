@@ -1,13 +1,28 @@
-
 @import "./config";
 
-.pageContent {
+.introContainer {
+    width: 100%;
+    padding: 15px map-get($sizes, minimal-padding);
+}
+
+.profileContainer {
+    max-width: map-get($sizes, web-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 2px 2px 5px #5e5e5e;
+    border-radius: 6px;
+    padding: 10px 20px;
+
     &__header {
-        font-size: 4.5rem;
-        font-weight: 900;
-        align-self: center;
-        margin-top: 10px;
+        text-decoration: underline;
+        font-size: 2rem;
         margin-bottom: 10px;
+    }
+
+    &__text {
+        font-size: 1.6rem;
     }
 }
 
@@ -17,8 +32,6 @@
     flex-direction: column;
     margin: 0 auto;
     max-width: map-get($sizes, web-width);
-    padding: map-get($sizes, minimal-padding);
-    
     
     .postContainer {
         display: flex;

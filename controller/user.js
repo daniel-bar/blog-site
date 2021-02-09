@@ -1,5 +1,6 @@
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 const User = require('../models/user');
 
@@ -54,8 +55,84 @@ const editProfile = async (req, res, next) => {
             message: 'Server error',
         });
     }
-}
+};
+
+const getUserDetails = async (req, res, next) => {
+    try {
+        const details = await User.aggregate([
+            {
+                $match: { _id: mongoose.Types.ObjectId(req.query.id) },
+            },
+            {
+                $limit: 1,
+            },
+            {
+                $lookup: {
+                    from: 'posts',
+                    foreignField: 'owner',
+                    localField: '_id',
+                    as: 'posts',
+                },
+            },
+            {
+                $lookup: {
+                    from: 'posts',
+                    foreignField: 'comments.owner',
+                    localField: '_id',
+                    as: 'comments',
+                },
+            },
+            {
+                $project: {
+                    username: 1,
+                    email: 1,
+                    postsCounter: { $size: '$posts' },
+                    commentsCounter: { $size: '$comments' },
+                    'posts._id': 1,
+                    'posts.title': 1,
+                    'posts.content': 1,
+                    'posts.category': 1,
+                    'posts.createdAt': 1,
+                },
+            },
+            {
+                $unwind: {
+                    path: '$posts',
+                    preserveNullAndEmptyArrays: true,
+                },
+            },
+            {
+                $sort: { 'posts.createdAt': -1 },
+            },
+            {
+                $group: {
+                    _id: '$_id',
+                    username: { $first: '$username' },
+                    email: { $first: '$email' },
+                    postsCounter: { $first: '$postsCounter' },
+                    commentsCounter: { $first: '$commentsCounter' },
+                    posts: { $push: '$posts' },
+                },
+            },
+            {
+                $unset: ['_id', 'posts.createdAt'],
+            },
+        ]);
+
+        return res.status(200).send({
+            success: true,
+            message: 'Successfully retrieved user details',
+            data: { ...details[0] },
+        })
+    } catch {
+        return res.status(500).send({
+            success: false,
+            message: 'Server error',
+        });
+    }
+};
 
 module.exports = {
     editProfile,
+    getUserDetails,
 }

@@ -5,13 +5,9 @@ const {
     handleRegister,
     getUsername,
     getSelfDetails,
-    getUserDetails,
-    updateProfile,
 } = require('../controller/auth');
 
-const {
-    bodyKeys,
-} = require('../middleware/security');
+const { bodyKeys } = require('../middleware/security');
 const auth = require('../middleware/auth');
 
 const router = express.Router();
@@ -45,13 +41,6 @@ router.get(
     '/getSelfDetails',
     auth,
     getSelfDetails,
-);
-
-router.get(
-    '/getUserDetails',
-    bodyKeys([{ key: 'userID', type: 'string' }]),
-    auth,
-    getUserDetails,
 );
 
 module.exports = router;

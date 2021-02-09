@@ -89,6 +89,48 @@ const getCategories = async (req, res, next) => {
     }
 }
 
+const getCategoryPosts = async (req, res, next) => {
+    try {
+        const posts = await Post.aggregate([
+            {
+                $match: { category: req.query.category }
+            },
+            {
+                $sort: { createdAt: -1 },
+            },
+            {
+                $lookup: {
+                    from: 'users',
+                    foreignField: '_id',
+                    localField: 'owner',
+                    as: 'ownerData',
+                },
+            },
+            {
+                $project: {
+                    title: 1,
+                    content: 1,
+                    ownerID: { $arrayElemAt: ['$ownerData._id', 0] },
+                    ownerUsername: { $arrayElemAt: ['$ownerData.username', 0] },
+                },
+            },
+        ]);
+
+        return res.status(200).send({
+            success: true,
+            message: 'Successfully retrieved category',
+            data: {
+                posts,
+            },
+        });
+    } catch {
+        return res.status(500).send({
+            success: false,
+            message: 'Server error',
+        });
+    }
+}
+
 const getPosts = async (req, res, next) => {
     try {
         const posts = await Post.aggregate([
@@ -108,6 +150,7 @@ const getPosts = async (req, res, next) => {
                     title: 1,
                     content: 1,
                     category: 1,
+                    ownerID: { $arrayElemAt: ['$ownerData._id', 0] },
                     ownerUsername: { $arrayElemAt: ['$ownerData.username', 0] },
                 },
             },
@@ -133,6 +176,9 @@ const getPost = async (req, res, next) => {
         const post = await Post.aggregate([
             {
                 $match: { _id: mongoose.Types.ObjectId(req.query.postID) },
+            },
+            {
+                $limit: 1,
             },
             {
                 $lookup: {
@@ -178,6 +224,9 @@ const getPost = async (req, res, next) => {
                     comments: { $push: '$comment' },
                     ownerUsername: { $first: '$ownerUsername' },
                 },
+            },
+            {
+                $unset: ['_id'],
             },
         ]);
 
@@ -250,10 +299,60 @@ const postComment = async (req, res, next) => {
     }
 }
 
+const getHotPosts = async (req, res, next) => {
+    try {
+        const posts = await Post.aggregate([
+            {
+                $lookup: {
+                    from: 'users',
+                    foreignField: '_id',
+                    localField: 'owner',
+                    as: 'ownerData',
+                },
+            },
+            {
+                $project: {
+                    title: 1,
+                    content: 1,
+                    category: 1,
+                    ownerID: { $arrayElemAt: ['$ownerData._id', 0] },
+                    ownerUsername: { $arrayElemAt: ['$ownerData.username', 0] },
+                    commentCount: { $size: '$comments' },
+                    createdAt: 1,
+                }
+            },
+            {
+                $sort: {
+                    commentCount: -1,
+                    createdAt: -1,
+                },
+            },
+            {
+                $unset: ['commentCount'],
+            },
+        ]);
+
+        return res.status(200).send({
+            success: true,
+            message: 'Successfully retrieved posts',
+            data: {
+                posts,
+            },
+        });
+    } catch {
+        return res.status(500).send({
+            success: false,
+            message: 'Server error',
+        });
+    }
+}
+
 module.exports = {
     postBlog,
     getCategories,
     getPosts,
     getPost,
     postComment,
+    getCategoryPosts,
+    getHotPosts,
 }

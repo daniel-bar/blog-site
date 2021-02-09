@@ -20,6 +20,15 @@ const getCategories = async () => {
     return serverResponse.json();
 };
 
+const getCategoryPosts = async (data) => {
+    const serverResponse = await fetch(`api/blog/getCategoryPosts?category=${data}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    return serverResponse.json();
+}
+
 const getPosts = async () => {
     const serverResponse = await fetch('api/blog/getPosts', {
         method: 'GET',
@@ -46,6 +55,24 @@ const postComment = async (data) => {
             'Authorization': `Bearer ${localStorage.getItem('auth_token') || ''}`,
         },
         body: JSON.stringify(data),
+    });
+
+    return serverResponse.json();
+}
+
+const getUserStatistics = async (data) => {
+    const serverResponse = await fetch(`api/blog/getUserStatistics?postOwnerID=${data}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    return serverResponse.json();
+};
+
+const getHotPosts = async () => {
+    const serverResponse = await fetch('api/blog/getHotPosts', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
     });
 
     return serverResponse.json();

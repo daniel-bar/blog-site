@@ -1,8 +1,6 @@
 let isAuthenticated = false;
 let username;
 let post;
-let comments = [];
-
 
 (async () => {
     const authenticationResponse = await authenticate();
@@ -21,8 +19,7 @@ let comments = [];
     }
 
     post = getPostResponse.data.post;
-    comments = getPostResponse.data.post.comments;
-
+    const comments = getPostResponse.data.post.comments;
 
     $(document).ready(() => {
         // Elements
@@ -68,6 +65,10 @@ let comments = [];
         const $errorELM = $('#error');
 
         let onSendRequest = false;
+
+        if (!isAuthenticated) {
+            $commentFormELM.css('display', 'none')
+        }
 
         $commentFormELM.on('submit', async (event) => {
             event.preventDefault();

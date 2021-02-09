@@ -4,7 +4,7 @@ let posts = [];
 let categories = [];
 
 (async () => {
-    const authenticationResponse = await getSelfDetails();
+    const authenticationResponse = await authenticate();
 
     if (authenticationResponse.success) {
         isAuthenticated = true;
@@ -60,12 +60,12 @@ let categories = [];
                 <a class="postContainer__title" href="/blog.html?id=${post._id}">${post.title}</a>
                 <span class="postContainer__description">${post.content}</span>
                 <span class="postContainer__category">${post.category}</span>
-                <span class="postContainer__author">${post.ownerUsername}</span>
+                <a class="postContainer__author" href="${username === post.ownerUsername ? '/me.html' : `/profile.html?id=${post.ownerID}`}">${post.ownerUsername}</a>
             </div>
         `).join(''));
 
         $infoContainerLinksContainerELM.html(categories.map((category, idx) => `
-            <a class="infoContainerLinksContainer__link" href="/blogs?category=${category}">${category}${idx !== categories.length - 1 ? ',' : ''}</a>
+            <a class="infoContainerLinksContainer__link" href="/blogs.html?category=${category}">${category}${idx !== categories.length - 1 ? ',' : ''}</a>
         `).join(''));
     });
 })();

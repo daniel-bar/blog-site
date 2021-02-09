@@ -3,9 +3,11 @@ const express = require('express');
 const {
     postBlog,
     getCategories,
+    getCategoryPosts,
     getPosts,
     getPost,
     postComment,
+    getHotPosts,
 } = require('../controller/blog');
 
 const {
@@ -33,6 +35,12 @@ router.get(
 );
 
 router.get(
+    '/getCategoryPosts',
+    queryKeys([{ key: 'category', type: 'string' }]),
+    getCategoryPosts,
+);
+
+router.get(
     '/getPosts',
     getPosts,
 );
@@ -51,6 +59,11 @@ router.post(
         { key: 'content', type: 'string' },
     ]),
     postComment,
+);
+
+router.get(
+    '/getHotPosts',
+    getHotPosts,
 );
 
 module.exports = router;

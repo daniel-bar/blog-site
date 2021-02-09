@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hot blogs</title>
+    <title>Profile</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="stylesheet" href="./CSS/nav.css">
-    <link rel="stylesheet" href="./CSS/hot-blogs.css">
+    <link rel="stylesheet" href="./CSS/profile.css">
     <link rel="stylesheet" href="./CSS/footer.css">
 </head>
 
@@ -20,9 +20,9 @@
     <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>');</script>
 
     <script src="./JS/http/authentication.js"></script>
-    <script src="./JS/http/blog.js"></script>
+    <script src="./JS/http/user.js"></script>
 
-    <script src="./JS/hot-blogs.js"></script>
+    <script src="./JS/profile.js"></script>
 
     <nav class="nav">
         <div class="navInner">
@@ -34,11 +34,6 @@
                 <a class="navButton" href="/contact.html">Contact</a>
             </div>
 
-            <div id="authButtonsContainer" class="authButtonsContainer">
-                <a class="authButtonsContainer__button" href="/login.html">Login</a>
-                <a class="authButtonsContainer__button" href="/register.html">Register</a>
-            </div>
-
             <div id="navUserContainer" class="navUserContainer">
                 <a id="logoutButton" class="navUserContainer__button" href="/">Logout</a>
                 <div class="navUserContainer__divider"></div>
@@ -48,7 +43,19 @@
     </nav>
 
     <div class="pageContent">
-        <div class="pageContent__header">Hot blogs</div>
+        <div class="introContainer">
+            <div id="profileContainer" class="profileContainer">
+                <h1 class="profileContainer__header">Details:</h1>
+
+                <span id="profileUsernameText" class="profileContainer__text"></span>
+                <span id="profileEmailText" class="profileContainer__text"></span>
+
+                <h1 class="profileContainer__header">Statistics:</h1>
+
+                <span id="profilePostsCounter" class="profileContainer__text"></span>
+                <span id="profileCommentsCounter" class="profileContainer__text"></span>
+            </div>
+        </div>
 
         <div id="postsContainer" class="postsContainer"></div>
     </div>

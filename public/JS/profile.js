@@ -1,3 +1,6 @@
+let isAuthenticated = false;
+let ownUsername;
+
 let username;
 let email;
 let postsCounter;
@@ -5,16 +8,25 @@ let commentsCounter;
 let posts;
 
 (async () => {
-    const authenticationResponse = await getSelfDetails();
+    const authenticationResponse = await authenticate();
 
     if (authenticationResponse.success) {
-        username = authenticationResponse.data.username;
-        email = authenticationResponse.data.email;
-        postsCounter = authenticationResponse.data.postsCounter;
-        commentsCounter = authenticationResponse.data.commentsCounter;
-        posts = authenticationResponse.data.posts;
+        isAuthenticated = true;
+        ownUsername = authenticationResponse.data.username;
+    }
+
+    const queries = new URLSearchParams(window.location.search);
+
+    const userDetailsResponse = await getUserDetails(queries.get('id'));
+
+    if (userDetailsResponse.success) {
+        username = userDetailsResponse.data.username;
+        email = userDetailsResponse.data.email;
+        postsCounter = userDetailsResponse.data.postsCounter;
+        commentsCounter = userDetailsResponse.data.commentsCounter;
+        posts = userDetailsResponse.data.posts;
     } else {
-        return window.location.href = '/login.html';
+        return window.location.href = '/error.html';
     }
 
     $(document).ready(async () => {
@@ -26,7 +38,7 @@ let posts;
 
         $authButtonsContainerELM.css('display', 'none');
         $navUserContainerELM.css('display', 'flex');
-        $usernameTextELM.html(username);
+        $usernameTextELM.html(ownUsername);
 
         $logoutButtonELM.on('click', () => {
             localStorage.removeItem('auth_token');

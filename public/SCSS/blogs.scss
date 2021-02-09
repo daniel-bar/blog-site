@@ -2,13 +2,11 @@
 @import "./config";
 
 .pageHeaderContainer {
-    &__header {
-        font-size: 4.5rem;
-        font-weight: 900;
-        align-self: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+    font-size: 4.5rem;
+    font-weight: 900;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .postsContainer {
@@ -23,6 +21,7 @@
     .postContainer {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         background-color: map-get($colors, post-background);
         border: 2px solid map-get($colors, post-border);
         padding: 10px;

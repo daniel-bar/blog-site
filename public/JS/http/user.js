@@ -10,3 +10,14 @@ const updateProfile = async (data) => {
 
     return serverResponse.json();
 };
+
+const getUserDetails = async (data) => {
+    const serverResponse = await fetch(`/api/user/getUserDetails?id=${data}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    return serverResponse.json();
+};

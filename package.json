@@ -4,7 +4,6 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "scss": "node-sass --watch public/SCSS -o public/CSS",
         "start": "node server.js",
         "dev": "env-cmd -f ./env/backend.env nodemon server.js"

@@ -1,36 +1,25 @@
 let isAuthenticated = false;
 let username;
-let posts = [];
-let categories = [];
+let categoryPosts;
 
 (async () => {
-    const authenticationResponse = await getSelfDetails();
+    const authenticationResponse = await authenticate();
 
     if (authenticationResponse.success) {
         isAuthenticated = true;
         username = authenticationResponse.data.username;
     }
 
-    const getPostsResponse = await getPosts();
+    const queries = new URLSearchParams(window.location.search);
+    const category = queries.get('category');
 
-    if (!getPostsResponse.success) {
+    const getCategoryResponse = await getCategoryPosts(category);
+
+    if (!getCategoryResponse.success) {
         return window.location.href = '/error.html';
     }
 
-    posts = getPostsResponse.data.posts;
-
-    const getCategoriesResponse = await getCategories();
-
-    if (!getCategoriesResponse.success) {
-        return window.location.href = '/error.html';
-    }
-
-    categories = getCategoriesResponse.data.categories;
-
-    if (authenticationResponse.success) {
-        isAuthenticated = true;
-        username = authenticationResponse.data.username;
-    }
+    categoryPosts = getCategoryResponse.data.posts;
 
     $(document).ready(() => {
         // Elements
@@ -40,7 +29,6 @@ let categories = [];
         const $logoutButtonELM = $('#logoutButton');
         const $pageHeaderContainerELM = $('#pageHeaderContainer');
         const $postsContainerELM = $('#postsContainer');
-        const $infoContainerLinksContainerELM = $('#infoContainerLinksContainer');
 
         if (isAuthenticated) {
             $authButtonsContainerELM.css('display', 'none');
@@ -56,16 +44,14 @@ let categories = [];
             return window.location.href = '/';
         });
 
-        $pageHeaderContainerELM.html(categories.map((category) => `
-        <div class="pageHeaderContainer__header">${category}</div>
-        `).join(''));
+        $pageHeaderContainerELM.html(category);
 
-        $postsContainerELM.html(posts.map((post) => `
+        $postsContainerELM.html(categoryPosts.map((post) => `
             <div class="postContainer">
                 <a class="postContainer__title" href="/blog.html?id=${post._id}">${post.title}</a>
                 <span class="postContainer__description">${post.content}</span>
-                <span class="postContainer__category">${post.category}</span>
-                <span class="postContainer__author">${post.ownerUsername}</span>
+                <span class="postContainer__category">${category}</span>
+                <a class="postContainer__author" href="/profile.html?id=${post.ownerID}">${post.ownerUsername}</a>
             </div>
         `).join(''));
     });
